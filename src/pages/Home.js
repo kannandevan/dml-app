@@ -19,7 +19,7 @@ import quoteIcon from '../images/quote.png';
 import rating5 from '../images/rating5.png';
 import sustainabilityIcon from '../images/sustainability.png';
 import whyUsPic from '../images/why-us.png';
-import slider2Img1 from '../images/slider2-img1.png';
+import slider2Img1 from '../images/dml-office.png';
 import { Link } from 'react-router-dom';
 
 
@@ -174,7 +174,7 @@ const Home = () => {
                 <div className="container">
                     <h1 className="text-center text-white">Our Vision</h1>
                     <div class="row py-5 text-white d-flex justify-content-center align-items-center">
-                        <div class=" px-4  border-top border-bottom py-3 border-dark-subtle border-dashed">   
+                        <div class=" px-4  border-top border-bottom py-3 border-dark-subtle border-dashed">
                             <h5><i class="fa-solid fa-trophy me-2"></i><strong>Be the global leader</strong></h5>
                             <p class="text-justify text-white-50">
                                 We strive to set the industry standard by driving innovation, sustainability, and excellence in everything we do.
@@ -270,12 +270,20 @@ const Home = () => {
                         <div className="col-md-4 justify-content-center align-items-center d-flex"><img src={whyUsPic} alt="Why choose us" className="why-us-img" /></div>
                         <div className="col-md-8"><h1 className="mb-5">Why Choose Us </h1>
                             <div className="row">
-                                <div className="col-md-6"><i className="fa-solid fa-star"></i><h3>Uncompromising Quality</h3><p className="text-justify">Every detail is crafted with precision...</p></div>
-                                <div className="col-md-6"><i className="fa-solid fa-book-open-reader"></i><h3>Sustainability Leadership</h3><p className="text-justify">Leading with a focus on sustainability...</p></div>
+                                <div className="col-md-6"><i className="fa-solid fa-star"></i><h3>Uncompromising Quality</h3>
+                                    <p className="text-justify">Every detail is crafted with precision, every material is chosen for excellence, and every effort is focused on perfection. True quality requires dedication and care, which is why we ensure that everything we create meets the highest standards. From start to finish, our commitment remains unwavering, delivering the best in craftsmanship, performance, and reliability.                              </p></div>
+                                <div className="col-md-6"><i className="fa-solid fa-book-open-reader"></i><h3>Sustainability Leadership</h3>
+                                <p className="text-justify">Leading with a focus on sustainability in frozen foods and agri-food systems means utilizing energy-efficient freezing methods, reducing waste, sourcing responsibly, and preserving nutritional value. These efforts not only enhance food security and lower environmental impact but also support a more sustainable food supply chain and promote long-term economic resilience for future generations.
+
+</p></div>
                             </div>
                             <div className="row mt-5">
-                                <div className="col-md-6"><i className="fa-solid fa-earth-americas"></i><h3>Global Reach, Local Expertise</h3><p className="text-justify">We bridge international innovation with local knowledge...</p></div>
-                                <div className="col-md-6"><i className="fa-solid fa-person-circle-check"></i><h3>Customer-Centric Approach</h3><p className="text-justify">We prioritize understanding and meeting customer needs...</p></div>
+                                <div className="col-md-6"><i className="fa-solid fa-earth-americas"></i><h3>Global Reach, Local Expertise</h3>
+                                <p className="text-justify">We bridge international innovation with local knowledge to create sustainable, high-quality frozen foods and agri-food solutions. By leveraging global supply chains while understanding local agricultural practices, consumer preferences, and market demands, we deliver products that align with both environmental sustainability and evolving customer needs, ensuring a more adaptive and resilient food ecosystem.</p></div>
+                                <div className="col-md-6"><i className="fa-solid fa-person-circle-check"></i><h3>Customer-Centric Approach</h3>
+                                <p className="text-justify">We prioritize understanding and meeting customer needs, preferences, and expectations at every stage, ensuring personalized experiences and delivering solutions that enhance satisfaction. By fostering strong relationships and continuously innovating to exceed expectations, we build trust, drive loyalty, and create lasting value for our customers worldwide.
+
+</p></div>
                             </div>
                         </div>
                     </div>

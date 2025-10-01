@@ -782,3 +782,16 @@ p {
 .bg-light-gray {
   background-color: #f3f3f3;
 }
+.bg-seafood{
+  background:url(images/seafood-processing.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+ background-attachment: fixed;
+}
+
+.bg-aboutus{
+  background:url(images/bottom-slider-bg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}

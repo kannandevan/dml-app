@@ -5,11 +5,11 @@ import frozenOctopusImage from '../images/frozen-octopus.png';
 import frozenLobsterImage from '../images/frrozen_lobster_tail.png';
 import prawnsImage from '../images/prawns.jpg';
 import frozenFishImage from '../images/frozen-fish.png';
-
+import seafoodProcessingImage from '../images/seafood-processing.png';
 const FishProcess = () => {
     return (
         <>
-            <div className="bg-fish py-5">
+            <div className=" py-5 bg-seafood">
                 <div className="container py-5">
                     <div className="section-trans-bg1">
                         <h1>Diamante Mariscos Lda</h1>
@@ -25,33 +25,36 @@ const FishProcess = () => {
                         </p>
                         <hr />
                     </div>
-                    <div className="row pt-5">
-                        <div className="col-sm-12">
-                            <p className="text-justify py-2">
-                                We specialize in processing a wide variety of seafood, including <b>octopus, prawns, lobster, crabs</b>,
-                                and various other fish species. Our procurement process begins with working closely with traditional
-                                fishermen from the local community. These fishermen use time-honored, sustainable fishing techniques,
-                                ensuring that we support not only the local economy but also the preservation of the marine ecosystem.
-                            </p>
-                        </div>
-                        <div className="col-sm-12">
-                            <p className="text-justify py-2">
-                                Our processing plant is equipped with modern technology and stringent quality control systems,
-                                adhering to international standards. From cleaning, sorting, and grading to freezing and packaging,
-                                every step is meticulously managed to guarantee that our seafood retains its optimal quality.
-                                The processing team, made up of over<b> 100 skilled local workers</b>, plays an essential role in
-                                ensuring that each product meets the high standards our customers expect.
-                            </p>
-                        </div>
-                        <div className="col-sm-12">
-                            <p className="text-justify py-2">
-                                At Diamante Mariscos, we take pride in maintaining a balance between traditional fishing practices
-                                and modern processing methods, ensuring that our seafood is not only delicious but also responsibly
-                                sourced and handled. Our commitment to the local community and sustainable fishing practices is reflected
-                                in every product we process and deliver.
-                            </p>
+                    <div className="section-trans-bg1 mt-2">
+                        <div className="row pt-5">
+                            <div className="col-sm-12">
+                                <p className="text-justify py-2">
+                                    We specialize in processing a wide variety of seafood, including <b>octopus, prawns, lobster, crabs</b>,
+                                    and various other fish species. Our procurement process begins with working closely with traditional
+                                    fishermen from the local community. These fishermen use time-honored, sustainable fishing techniques,
+                                    ensuring that we support not only the local economy but also the preservation of the marine ecosystem.
+                                </p>
+                            </div>
+                            <div className="col-sm-12">
+                                <p className="text-justify py-2">
+                                    Our processing plant is equipped with modern technology and stringent quality control systems,
+                                    adhering to international standards. From cleaning, sorting, and grading to freezing and packaging,
+                                    every step is meticulously managed to guarantee that our seafood retains its optimal quality.
+                                    The processing team, made up of over<b> 100 skilled local workers</b>, plays an essential role in
+                                    ensuring that each product meets the high standards our customers expect.
+                                </p>
+                            </div>
+                            <div className="col-sm-12">
+                                <p className="text-justify py-2">
+                                    At Diamante Mariscos, we take pride in maintaining a balance between traditional fishing practices
+                                    and modern processing methods, ensuring that our seafood is not only delicious but also responsibly
+                                    sourced and handled. Our commitment to the local community and sustainable fishing practices is reflected
+                                    in every product we process and deliver.
+                                </p>
+                            </div>
                         </div>
                     </div>
+
                 </div>
             </div>
 
