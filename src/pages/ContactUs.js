@@ -32,61 +32,73 @@ const ContactUs = () => {
             <div className="contact py-5">
                 <h3 className="text-center">Contact us</h3>
                 <div className="container py-5">
-                    <div className="row">
-                        <div className="col-md-4 d-flex align-items-stretch">
-                            <div className="card text-center align-items-center p-4 w-100">
-                                <i className="fa-solid fa-location-dot fa-2x text-primary"></i>
-                                <hr className="w-100" />
-                                <p className="mt-4">
+                    <div className="row g-5">
+                        <div className="col-md-5 d-flex align-items-stretch">
+                            <div className="card border-0 shadow-card text-center align-items-center p-5 w-100 bg-white">
+                                <div className="mb-4 text-primary bg-light rounded-circle d-flex align-items-center justify-content-center" style={{ width: '80px', height: '80px' }}>
+                                    <i className="fa-solid fa-location-dot fa-2x"></i>
+                                </div>
+                                <h4 className="mb-3">Our Location</h4>
+                                <p className="text-muted mb-4">
                                     Avenida de Liberdade<br />
                                     C.P. 234, Cidade de Angoche<br />
-                                    Nampula, Mozambique.<br />
-                                    Telefax: +258 26 720439
+                                    Nampula, Mozambique.
                                 </p>
-                                <h4 className="text-center mt-4">
-                                    Call us today<br />
-                                    +258 84 3366908
-                                </h4>
+                                <hr className="w-100 my-4" style={{ opacity: 0.1 }} />
+                                <h5 className="text-center mb-2">Call us today</h5>
+                                <p className="h4 text-primary font-weight-bold">+258 84 3366908</p>
+                                <p className="text-muted small mt-2">Telefax: +258 26 720439</p>
                             </div>
                         </div>
-                        <div className="col-md-8 d-flex flex-column gap-3">
-                            <input
-                                className="form-control"
-                                type="text"
-                                name="name"
-                                placeholder="Name *"
-                                value={formData.name}
-                                onChange={handleInputChange}
-                                required
-                            />
-                            <input
-                                className="form-control"
-                                type="email"
-                                name="email"
-                                placeholder="Email *"
-                                value={formData.email}
-                                onChange={handleInputChange}
-                                required
-                            />
-                            <input
-                                className="form-control"
-                                type="text"
-                                name="subject"
-                                placeholder="Subject *"
-                                value={formData.subject}
-                                onChange={handleInputChange}
-                                required
-                            />
-                            <textarea
-                                className="form-control flex-grow-1"
-                                name="message"
-                                placeholder="Message *"
-                                value={formData.message}
-                                onChange={handleInputChange}
-                                required
-                                rows="5"
-                            ></textarea>
-                            <button type="submit" className="btn btn-primary">Submit</button>
+                        <div className="col-md-7">
+                            <div className="bg-white p-5 rounded-4 shadow-card h-100">
+                                <h3 className="mb-4">Send us a message</h3>
+                                <div className="d-flex flex-column gap-3">
+                                    <div className="row g-3">
+                                        <div className="col-md-6">
+                                            <input
+                                                className="form-control"
+                                                type="text"
+                                                name="name"
+                                                placeholder="Your Name"
+                                                value={formData.name}
+                                                onChange={handleInputChange}
+                                                required
+                                            />
+                                        </div>
+                                        <div className="col-md-6">
+                                            <input
+                                                className="form-control"
+                                                type="email"
+                                                name="email"
+                                                placeholder="Your Email"
+                                                value={formData.email}
+                                                onChange={handleInputChange}
+                                                required
+                                            />
+                                        </div>
+                                    </div>
+                                    <input
+                                        className="form-control"
+                                        type="text"
+                                        name="subject"
+                                        placeholder="Subject"
+                                        value={formData.subject}
+                                        onChange={handleInputChange}
+                                        required
+                                    />
+                                    <textarea
+                                        className="form-control flex-grow-1"
+                                        name="message"
+                                        placeholder="Message"
+                                        value={formData.message}
+                                        onChange={handleInputChange}
+                                        required
+                                        rows="6"
+                                    ></textarea>
+                                    <button type="submit" className="btn btn-primary-custom w-100 mt-2">Send Message</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

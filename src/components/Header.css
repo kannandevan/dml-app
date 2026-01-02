@@ -2,7 +2,7 @@
 
 /* Navbar Container */
 .top-nav {
-    background: rgba(255, 255, 255, 0.85) !important;
+    background: rgba(255, 255, 255, 0.9) !important;
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
@@ -10,30 +10,56 @@
     padding: 0.5rem 0;
     transition: all 0.3s ease;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+    position: relative;
+    z-index: 1030;
+    /* Ensure navbar is above other content */
 }
 
-/* Logo Positioning */
+/* Logo Positioning - Round Floating Badge Style */
 .navbar-brand {
-    position: relative;
-    padding-left: 0;
+    /* position: relative; */
+    padding-left: 0 !important;
     margin-right: 2rem;
     display: flex;
     align-items: center;
+    min-height: 80px;
+    /* Increased to accommodate logo overlap */
 }
 
+/* Round Floating Logo */
 .logo-img {
-    height: 60px !important;
-    width: auto !important;
-    position: static !important;
-    transform: none !important;
-    border-radius: 0 !important;
-    object-fit: contain;
+    width: 120px !important;
+    height: 120px !important;
+    position: absolute !important;
+    left: 0;
+    top: 50px;
+    left: 50px;
+    /* Slight overlay from top if needed, or adjust to hang down */
+    transform: translateY(-15%);
+    /* Center vertically relative to itself roughly */
+    border-radius: 50% !important;
+    object-fit: contain !important;
+    /* Changed from cover to contain to show full logo */
+    /* or contain, depending on image aspect ratio, cover usually better for round */
+    background: white;
+    /* Ensure visibility against transparent backgrounds */
+    padding: 15px;
+    /* Added padding to give breathing room */
+    /* Border effect */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    /* Floating shadow */
+    z-index: 2000;
+    transition: all 0.3s ease;
 }
 
-/* Nav Link Styles */
+/* Adjust Nav to not be covered by big logo */
 .navbar-nav {
+    margin-left: 140px;
+    /* Push content right */
     gap: 5px;
     align-items: center;
+    margin-left: 100px;
+    /* Push nav items to right to not overlap big logo */
 }
 
 .nav-link {
@@ -60,17 +86,27 @@
     margin-left: 0.5em;
 }
 
-/* --- MEGA MENU --- */
-.navbar-expand-lg .navbar-nav .dropdown-menu.mega-menu {
-    border: none;
-    margin-top: 15px;
-    /* Gap for hover intent feeling */
-    border-radius: 16px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-    background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(20px);
-    padding: 2rem;
-    animation: fadeInUp 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+/* --- MEGA MENU FIXED --- */
+/* Ensure the parent dropdown is static so menu can be full width relative to navbar */
+@media (min-width: 992px) {
+    .navbar-expand-lg .navbar-nav .dropdown {
+        position: static;
+    }
+
+    .navbar-expand-lg .navbar-nav .dropdown-menu.mega-menu {
+        width: 100%;
+        left: 0;
+        right: 0;
+        border: none;
+        margin-top: 25px;
+        /* Increase gap slightly */
+        border-radius: 0 0 16px 16px;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(20px);
+        padding: 3rem;
+        animation: fadeInUp 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+    }
 }
 
 @keyframes fadeInUp {
@@ -87,35 +123,40 @@
 
 .mega-menu p {
     font-family: var(--font-heading);
-    font-weight: 600;
+    font-weight: 700;
     color: var(--primary-color);
     letter-spacing: 0.5px;
     border-bottom: 2px solid rgba(59, 71, 153, 0.1);
     padding-bottom: 10px;
     margin-bottom: 15px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
 }
 
 .mega-menu ul li {
-    margin-bottom: 5px;
+    margin-bottom: 8px;
 }
 
 .mega-menu .list-group-item-action .nav-link {
-    padding: 8px 12px !important;
+    padding: 10px 15px !important;
     border-radius: 8px;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: var(--text-light) !important;
     font-weight: 400;
     display: block;
+    background: transparent;
 }
 
 .mega-menu .list-group-item-action .nav-link:hover {
-    background-color: rgba(59, 71, 153, 0.05);
+    background-color: rgba(59, 71, 153, 0.08);
     color: var(--primary-color) !important;
     transform: translateX(5px);
+    font-weight: 500;
 }
 
 .mega-menu .col-lg-4 {
     border-right: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 0 2rem;
 }
 
 .mega-menu .col-lg-4:last-child {
@@ -140,12 +181,35 @@
 /* --- RESPONSIVE MOBILE STYLES --- */
 @media (max-width: 991px) {
     .top-nav {
-        padding: 10px 0;
+        padding: 5px 0;
+        /* Reduced padding */
     }
 
+    /* Responsive Round Logo */
     .logo-img {
-        height: 45px !important;
-        position: static;
+        width: 60px !important;
+        height: 60px !important;
+        position: relative !important;
+        /* Back to relative flow for mobile, or absolute if preferred */
+        top: auto;
+        left: auto;
+        transform: none !important;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-brand {
+        margin-right: auto;
+        /* Push toggler to right */
+        min-height: auto;
+        padding-left: 0;
+    }
+
+    /* Reset nav margin */
+    .navbar-nav {
+        margin-left: 0;
+        gap: 10px;
+        align-items: flex-start;
+        margin-top: 10px;
     }
 
     .navbar-collapse {
@@ -158,11 +222,9 @@
         border-radius: 0 0 20px 20px;
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         border-top: 1px solid rgba(0, 0, 0, 0.05);
-    }
-
-    .navbar-nav {
-        gap: 10px;
-        align-items: flex-start;
+        /* Enable scrolling for tall menus on small screens */
+        max-height: 80vh;
+        overflow-y: auto;
     }
 
     .nav-link {
@@ -177,11 +239,15 @@
         padding: 10px;
         border-radius: 12px;
         margin-top: 5px;
+        /* Ensure dropdown itself doesn't constrain height if collapse does */
+        max-height: none;
+        overflow: visible;
     }
 
     .mega-menu .col-lg-4 {
         border-right: none;
         margin-bottom: 20px;
+        padding: 0;
     }
 
     .mega-menu p {

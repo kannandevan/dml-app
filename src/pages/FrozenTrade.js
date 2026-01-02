@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import heroImage from '../images/frozen-fish.png';
 
-// Import images for this page
-import heroImage from '../images/fish-trade.webp';
-
-// Import product images from the 'products' sub-folder
 import chickenWings from '../images/products/forzen-wings.webp';
 import chickenUpperBack from '../images/products/uper-back.webp';
 import chickenLowerBack from '../images/products/lower-back.webp';
@@ -20,20 +17,14 @@ import fishChubMackerel from '../images/products/frozen-fish02.webp';
 import fishSardine from '../images/products/frozen-fish03.webp';
 import fishSprat from '../images/products/frozen-fish04.webp';
 
-
 const FrozenTrade = () => {
-
-    // State to track the currently active category button
     const [activeCategory, setActiveCategory] = useState('frozen-chicken');
 
-    // Function to handle smooth scrolling when a button is clicked
     const handleCategoryClick = (targetId) => {
-        // We set the active category on click as well for immediate feedback
         setActiveCategory(targetId);
         const targetElement = document.getElementById(targetId);
         if (targetElement) {
-            // Offset to account for the sticky header (70px) and category buttons (65px)
-            const headerOffset = 150; 
+            const headerOffset = 180;
             const elementPosition = targetElement.getBoundingClientRect().top;
             const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
@@ -44,164 +35,141 @@ const FrozenTrade = () => {
         }
     };
 
-    // This useEffect hook adds a scroll listener to automatically update the
-    // active button based on the user's scroll position.
     useEffect(() => {
         const sections = ['frozen-chicken', 'frozen-fish', 'frozen-meat'];
-        const offset = 160; // Offset from the top of the viewport
+        const offset = 200;
 
         const handleScrollHighlight = () => {
             const scrollY = window.scrollY;
             let currentSection = '';
 
-            // This logic finds which section is currently in view
             sections.forEach(sectionId => {
                 const section = document.getElementById(sectionId);
                 if (section && section.offsetTop <= scrollY + offset) {
                     currentSection = sectionId;
                 }
             });
-            
-            // We only update the state if the active section has changed
-            // to prevent unnecessary re-renders.
+
             if (currentSection && activeCategory !== currentSection) {
                 setActiveCategory(currentSection);
             }
         };
 
-        // Add the scroll event listener when the component mounts
         window.addEventListener('scroll', handleScrollHighlight);
-
-        // This is a cleanup function to remove the listener when the component unmounts
         return () => window.removeEventListener('scroll', handleScrollHighlight);
-    }, [activeCategory]); // The effect depends on `activeCategory` to avoid stale state
+    }, [activeCategory]);
 
+    const ProductCard = ({ img, title }) => (
+        <div className="col-md-6 col-lg-3">
+            <div className="card border-0 h-100 shadow-card hover-lift overflow-hidden group-hover-zoom rounded-4">
+                <div className="position-relative overflow-hidden" style={{ height: '260px' }}>
+                    <img src={img} alt={title} className="w-100 h-100 object-fit-cover transition-transform duration-500" />
+                    <div className="position-absolute bottom-0 start-0 w-100 bg-gradient-to-t from-dark to-transparent p-5 opacity-50"></div>
+                </div>
+                <div className="card-body text-center bg-white position-relative p-4">
+                    <h6 className="fw-bold mb-0 text-dark fs-5">{title}</h6>
+                </div>
+            </div>
+        </div>
+    );
 
     return (
-        <>
+        <div className="page-wrapper bg-light">
             {/* Hero Section */}
-            <div className="section bg-light-gray py-5">
-                <div className="container py-5">
-                    <h1>Frozen Product Supply Chain at Diamante Mariscos Lda</h1>
-                    <div className="row">
-                        <div className="col-md-8">
-                            <p className="lead">Ensuring Food Safety and Quality Across Mozambique</p>
-                            <p className="text-justify">
-                                At Diamante Mariscos Lda, we are proud to be a key player in
-                                Mozambique's food safety management, with a well-established and
-                                efficient frozen product supply chain.
-                            </p>
-                        </div>
-                        <div className="col-md-4 d-flex align-items-center">
-                            <img className="w-100 rounded-5" src={heroImage} alt="Fish Trade" />
-                        </div>
-                    </div>
+            <section className="position-relative py-5 text-white" style={{ background: `url(${heroImage}) center/cover no-repeat fixed`, minHeight: '550px', display: 'flex', alignItems: 'center' }}>
+                <div className="position-absolute top-0 start-0 w-100 h-100 bg-black opacity-80"></div>
+                <div className="container position-relative z-2 text-center">
+                    <span className="badge bg-danger text-white mb-4 px-4 py-2 rounded-pill fw-bold letter-spacing-2 shadow">COLD CHAIN EXPERTS</span>
+                    <h1 className="display-2 fw-bold mb-3 text-shadow">Frozen Product Supply</h1>
+                    <p className="lead mb-0 w-75 mx-auto opacity-100 fs-4 text-shadow-sm">Ensuring food safety and quality across Mozambique with a comprehensive range of frozen proteins.</p>
+                </div>
+            </section>
+
+            {/* Sticky Nav Buttons */}
+            <div className="sticky-top bg-white/90 backdrop-blur shadow-sm z-3 py-3 border-bottom">
+                <div className="container d-flex justify-content-center gap-2 gap-md-4 flex-wrap">
+                    {[
+                        { id: 'frozen-chicken', label: 'Frozen Chicken', icon: 'fa-drumstick-bite' },
+                        { id: 'frozen-fish', label: 'Frozen Fish', icon: 'fa-fish' },
+                        { id: 'frozen-meat', label: 'Frozen Meat', icon: 'fa-burger' }
+                    ].map(cat => (
+                        <button
+                            key={cat.id}
+                            className={`btn rounded-pill px-4 py-2 fw-bold d-flex align-items-center gap-2 transition-all ${activeCategory === cat.id ? 'btn-danger shadow transform-scale-105' : 'btn-light text-muted hover-bg-light-gray'}`}
+                            onClick={() => handleCategoryClick(cat.id)}>
+                            <i className={`fa-solid ${cat.icon}`}></i> {cat.label}
+                        </button>
+                    ))}
                 </div>
             </div>
 
-            {/* Category Buttons - The className is now dynamic */}
-            <div id="category-buttons" className="sticky-top d-flex flex-wrap align-items-center w-100 justify-content-center bg-warning-subtle py-3 gap-3">
-                <button 
-                    className={`btn ${activeCategory === 'frozen-chicken' ? 'btn-danger' : 'btn-outline-secondary'}`} 
-                    onClick={() => handleCategoryClick('frozen-chicken')}>
-                    Frozen Chicken
-                </button>
-                <button 
-                    className={`btn ${activeCategory === 'frozen-fish' ? 'btn-danger' : 'btn-outline-secondary'}`} 
-                    onClick={() => handleCategoryClick('frozen-fish')}>
-                    Frozen Fish
-                </button>
-                <button 
-                    className={`btn ${activeCategory === 'frozen-meat' ? 'btn-danger' : 'btn-outline-secondary'}`} 
-                    onClick={() => handleCategoryClick('frozen-meat')}>
-                    Frozen Meat
-                </button>
-            </div>
-
-            {/* Frozen Chicken Section */}
-            <div id="frozen-chicken" className="frozen-chicken py-5">
-                <div className="container my-5">
-                    <h1 className="text-center mb-4">Frozen Chicken</h1>
-                    <p className="text-center lead">We provide high-quality frozen chicken, ensuring freshness and great taste.</p>
-                    <div className="row gallery pt-5">
-                        <div className="col-md-3 col-sm-6 cardz text-center mb-4">
-                            <img src={chickenWings} alt="Frozen Chicken Wings" className="img-fluid rounded" />
-                            <div className="mt-2 fw-bold">Frozen Chicken Wings</div>
+            {/* Frozen Chicken Section - Chicken (Light BG as standard) */}
+            <section id="frozen-chicken" className="section py-5 bg-light-subtle">
+                <div className="container py-4">
+                    <div className="d-flex align-items-center mb-5 pb-3 border-bottom border-warning">
+                        <div className="icon-circle bg-warning text-dark me-4 shadow-sm" style={{ width: '60px', height: '60px', fontSize: '1.5rem' }}>
+                            <i className="fa-solid fa-drumstick-bite"></i>
                         </div>
-                        <div className="col-md-3 col-sm-6 cardz text-center mb-4">
-                            <img src={chickenUpperBack} alt="Frozen Chicken Upper Back" className="img-fluid rounded" />
-                            <div className="mt-2 fw-bold">Frozen Chicken Upper Back</div>
-                        </div>
-                        <div className="col-md-3 col-sm-6 cardz text-center mb-4">
-                            <img src={chickenLowerBack} alt="Frozen Chicken Lower Back" className="img-fluid rounded" />
-                            <div className="mt-2 fw-bold">Frozen Chicken Lower Back</div>
-                        </div>
-                        <div className="col-md-3 col-sm-6 cardz text-center mb-4">
-                            <img src={chickenTails} alt="Frozen Chicken Tails" className="img-fluid rounded" />
-                            <div className="mt-2 fw-bold">Frozen Chicken Tails</div>
+                        <div>
+                            <h6 className="text-warning fw-bold text-uppercase letter-spacing-2 mb-1">Poultry</h6>
+                            <h2 className="display-5 fw-bold mb-0">Frozen Chicken</h2>
                         </div>
                     </div>
-                    <div className="row gallery pt-5">
-                        <div className="col-md-3 col-sm-6 cardz text-center mb-4">
-                            <img src={chickenFrank} alt="Frozen Chicken Frank" className="img-fluid rounded" />
-                            <div className="mt-2 fw-bold">Frozen Chicken Frank</div>
-                        </div>
-                        <div className="col-md-3 col-sm-6 cardz text-center mb-4">
-                            <img src={chickenNeck} alt="Frozen Chicken Neck" className="img-fluid rounded" />
-                            <div className="mt-2 fw-bold">Frozen Chicken Neck</div>
-                        </div>
-                        <div className="col-md-3 col-sm-6 cardz text-center mb-4">
-                            <img src={wholeChicken} alt="Frozen Whole Chicken with Livers & Gizzards" className="img-fluid rounded" />
-                            <div className="mt-2 fw-bold">Frozen Whole Chicken with Livers & Gizzards</div>
-                        </div>
+
+                    <div className="row g-4">
+                        <ProductCard img={chickenWings} title="Frozen Chicken Wings" />
+                        <ProductCard img={chickenUpperBack} title="Frozen Chicken Upper Back" />
+                        <ProductCard img={chickenLowerBack} title="Frozen Chicken Lower Back" />
+                        <ProductCard img={chickenTails} title="Frozen Chicken Tails" />
+                        <ProductCard img={chickenFrank} title="Frozen Chicken Frank" />
+                        <ProductCard img={chickenNeck} title="Frozen Chicken Neck" />
+                        <ProductCard img={wholeChicken} title="Whole Chicken with Livers & Gizzards" />
                     </div>
                 </div>
-            </div>
+            </section>
 
-            {/* Frozen Fish Section */}
-            <div id="frozen-fish" className="frozen-fish py-5 bg-light-gray">
-                <div className="container my-5">
-                    <h1 className="text-center mb-4">Frozen Fish</h1>
-                    <p className="text-center lead">We offer a selection of high-quality frozen fish, ensuring freshness and rich taste.</p>
-                    <div className="row gallery pt-5">
-                        <div className="col-md-3 col-sm-6 cardz text-center mb-4">
-                            <img src={fishHorseMackerel} alt="Frozen Horse Mackerel" className="img-fluid rounded" />
-                            <div className="mt-2 fw-bold">Frozen Horse Mackerel (Carapao)</div>
+            {/* Frozen Fish Section - White BG */}
+            <section id="frozen-fish" className="section py-5 bg-white border-top border-bottom">
+                <div className="container py-4">
+                    <div className="d-flex align-items-center mb-5 pb-3 border-bottom border-info">
+                        <div className="icon-circle bg-info text-white me-4 shadow-sm" style={{ width: '60px', height: '60px', fontSize: '1.5rem' }}>
+                            <i className="fa-solid fa-fish"></i>
                         </div>
-                        <div className="col-md-3 col-sm-6 cardz text-center mb-4">
-                            <img src={fishChubMackerel} alt="Frozen Chub Mackerel" className="img-fluid rounded" />
-                            <div className="mt-2 fw-bold">Frozen Chub Mackerel (Atum)</div>
-                        </div>
-                        <div className="col-md-3 col-sm-6 cardz text-center mb-4">
-                            <img src={fishSardine} alt="Frozen Sardine" className="img-fluid rounded" />
-                            <div className="mt-2 fw-bold">Frozen Sardine</div>
-                        </div>
-                        <div className="col-md-3 col-sm-6 cardz text-center mb-4">
-                            <img src={fishSprat} alt="Frozen Sprat" className="img-fluid rounded" />
-                            <div className="mt-2 fw-bold">Frozen Sprat</div>
+                        <div>
+                            <h6 className="text-info fw-bold text-uppercase letter-spacing-2 mb-1">Seafood</h6>
+                            <h2 className="display-5 fw-bold mb-0">Frozen Fish</h2>
                         </div>
                     </div>
-                </div>
-            </div>
 
-            {/* Frozen Meat Section */}
-            <div id="frozen-meat" className="frozen-meat py-5">
-                <div className="container my-5">
-                    <h1 className="text-center mb-4">Frozen Meat</h1>
-                    <p className="text-center lead">We provide high-quality frozen meat, ensuring freshness and great taste.</p>
-                    <div className="row gallery pt-5">
-                        <div className="col-md-3 col-sm-6 cardz text-center mb-4">
-                            <img src={beefWhole} alt="Frozen Beef Whole" className="img-fluid rounded" />
-                            <div className="mt-2 fw-bold">Frozen Beef Whole</div>
-                        </div>
-                        <div className="col-md-3 col-sm-6 cardz text-center mb-4">
-                            <img src={beefLiver} alt="Frozen Beef Liver" className="img-fluid rounded" />
-                            <div className="mt-2 fw-bold">Frozen Beef Liver</div>
-                        </div>
+                    <div className="row g-4">
+                        <ProductCard img={fishHorseMackerel} title="Horse Mackerel (Carapao)" />
+                        <ProductCard img={fishChubMackerel} title="Chub Mackerel (Atum)" />
+                        <ProductCard img={fishSardine} title="Frozen Sardine" />
+                        <ProductCard img={fishSprat} title="Frozen Sprat" />
                     </div>
                 </div>
-            </div>
-        </>
+            </section>
+
+            {/* Frozen Meat Section - Light BG */}
+            <section id="frozen-meat" className="section py-5 bg-light-subtle">
+                <div className="container py-4">
+                    <div className="d-flex align-items-center mb-5 pb-3 border-bottom border-danger">
+                        <div className="icon-circle bg-danger text-white me-4 shadow-sm" style={{ width: '60px', height: '60px', fontSize: '1.5rem' }}>
+                            <i className="fa-solid fa-burger"></i>
+                        </div>
+                        <div>
+                            <h6 className="text-danger fw-bold text-uppercase letter-spacing-2 mb-1">Meat Products</h6>
+                            <h2 className="display-5 fw-bold mb-0">Frozen Meat</h2>
+                        </div>
+                    </div>
+
+                    <div className="row g-4">
+                        <ProductCard img={beefWhole} title="Frozen Beef Whole" />
+                        <ProductCard img={beefLiver} title="Frozen Beef Liver" />
+                    </div>
+                </div>
+            </section>
+        </div>
     );
 };
 
