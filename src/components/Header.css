@@ -1,116 +1,191 @@
-/* General Navbar styles */
+/* === MODERN HEADER STYLES === */
+
+/* Navbar Container */
 .top-nav {
-    min-height: 70px;
-    background-color: white !important;
-    margin-bottom: 30px;
+    background: rgba(255, 255, 255, 0.85) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    min-height: 80px;
+    padding: 0.5rem 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
 }
+
+/* Logo Positioning */
 .navbar-brand {
     position: relative;
-    padding-left: 60px;
+    padding-left: 0;
+    margin-right: 2rem;
+    display: flex;
+    align-items: center;
 }
+
 .logo-img {
-    width: 124px;
-    height: auto;
-    position: absolute;
-    left: -50px;
-    transform: translateY(-22%);
+    height: 60px !important;
+    width: auto !important;
+    position: static !important;
+    transform: none !important;
+    border-radius: 0 !important;
+    object-fit: contain;
 }
-.logo-img {
-    width: 124px;
-    border-radius: 50%;
-    height: auto;
-    position: absolute;
-    left: -50px;
-    /* top: 64%; */
-    transform: translateY(-22%);
-  }
+
+/* Nav Link Styles */
 .navbar-nav {
-    gap: 18px;
+    gap: 5px;
+    align-items: center;
 }
+
 .nav-link {
+    font-family: var(--font-heading);
     font-weight: 500;
-}
-.nav-link.active {
-    background-color: #e9f5f5;
-    border-radius: 8px;
-}
-
-
-/* --- MEGA MENU STYLES --- */
-
-/* This is the most important part */
-/* We make the parent of the dropdown (.dropdown) static, so the menu isn't positioned relative to it */
-.navbar-expand-lg .navbar-nav .dropdown {
-    position: static;
+    color: var(--text-dark) !important;
+    padding: 0.6rem 1.2rem !important;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
 }
 
-/* Now we can style the mega menu to be full width */
+.nav-link:hover,
+.nav-link.active,
+.nav-link:focus {
+    color: var(--primary-color) !important;
+    background-color: var(--bg-off-white);
+    transform: translateY(-1px);
+}
+
+/* Dropdown / Mega Menu Trigger */
+.dropdown-toggle::after {
+    vertical-align: middle;
+    margin-left: 0.5em;
+}
+
+/* --- MEGA MENU --- */
 .navbar-expand-lg .navbar-nav .dropdown-menu.mega-menu {
-    width: 100%;
-    left: 0;
-    right: 0;
-    margin-top: 0;
-    border-top: 1px solid #ddd;
-    border-radius: 0;
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    border: none;
+    margin-top: 15px;
+    /* Gap for hover intent feeling */
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(20px);
+    padding: 2rem;
+    animation: fadeInUp 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .mega-menu p {
-    font-weight: bold;
-    color: #444b7c;
-    margin-bottom: 10px;
-    padding-top: 10px;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--primary-color);
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid rgba(59, 71, 153, 0.1);
+    padding-bottom: 10px;
+    margin-bottom: 15px;
 }
 
-.mega-menu ul {
-    list-style-type: none;
-    padding-left: 0;
-}
-
-.mega-menu .list-group-item-action {
-    border: none;
-    padding: 0;
+.mega-menu ul li {
+    margin-bottom: 5px;
 }
 
 .mega-menu .list-group-item-action .nav-link {
-    padding: 0.5rem 1rem;
-    border-radius: 0.25rem;
-    transition: background-color 0.2s ease-in-out;
+    padding: 8px 12px !important;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: var(--text-light) !important;
+    font-weight: 400;
+    display: block;
 }
 
 .mega-menu .list-group-item-action .nav-link:hover {
-    background-color: #f1f1f1;
+    background-color: rgba(59, 71, 153, 0.05);
+    color: var(--primary-color) !important;
+    transform: translateX(5px);
 }
 
 .mega-menu .col-lg-4 {
-    border-right: solid 1px #eee;
+    border-right: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .mega-menu .col-lg-4:last-child {
     border-right: none;
 }
 
+/* Mobile Toggle Button */
+.navbar-toggler {
+    border: none;
+    background: transparent;
+    padding: 0;
+}
 
-/* --- RESPONSIVE STYLES for MOBILE --- */
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(59, 71, 153, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* --- RESPONSIVE MOBILE STYLES --- */
 @media (max-width: 991px) {
+    .top-nav {
+        padding: 10px 0;
+    }
+
     .logo-img {
+        height: 45px !important;
         position: static;
-        transform: none;
-        width: 80px;
     }
-    .navbar-brand {
-        padding-left: 0;
+
+    .navbar-collapse {
+        background: white;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        padding: 20px;
+        border-radius: 0 0 20px 20px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        border-top: 1px solid rgba(0, 0, 0, 0.05);
     }
-    /* On mobile, the dropdown should behave like a normal part of the menu */
-    .navbar-expand-lg .navbar-nav .dropdown-menu.mega-menu {
+
+    .navbar-nav {
+        gap: 10px;
+        align-items: flex-start;
+    }
+
+    .nav-link {
         width: 100%;
-        position: static;
-        box-shadow: none;
-        border: none;
-        background-color: #f8f9fa;
+        padding: 12px 20px !important;
     }
+
+    /* Mobile Dropdown */
+    .navbar-expand-lg .navbar-nav .dropdown-menu.mega-menu {
+        box-shadow: none;
+        background: var(--bg-light);
+        padding: 10px;
+        border-radius: 12px;
+        margin-top: 5px;
+    }
+
     .mega-menu .col-lg-4 {
         border-right: none;
-        padding-bottom: 15px;
+        margin-bottom: 20px;
+    }
+
+    .mega-menu p {
+        padding-top: 0;
+        font-size: 1rem;
     }
 }

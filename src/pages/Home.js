@@ -58,111 +58,160 @@ const Home = () => {
     return (
         <>
             {/* Banner Slider */}
-            <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel">
+            <div id="heroCarousel" className="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+                <div className="carousel-indicators">
+                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
+                    {/* Add more indicators if more slides are added */}
+                </div>
                 <div className="carousel-inner">
                     <div className="carousel-item active">
-                        <div className="contents d-none d-lg-block ">
-                            <h3>Harvesting Excellence, Delivering Freshness</h3>
-                            <p>DML Group, we are dedicated to delivering the freshest and highest quality seafood...</p>
-                            <div className="see-how-work justify-content-start align-items-center d-flex gap-2 px-3 mt-5">
-                                <i className="fa-regular fa-circle-play"></i><span className="text-white ">See how we work</span>
+                        <img src={banner1} className="d-block w-100 hero-img" alt="Harvesting Excellence" style={{ height: '90vh', objectFit: 'cover', filter: 'brightness(0.8)' }} />
+                        <div className="carousel-caption d-flex flex-column justify-content-center h-100 start-0 top-0 w-100" style={{ pointerEvents: 'none' }}>
+                            <div className="container" style={{ pointerEvents: 'auto' }}>
+                                <div className="row">
+                                    <div className="col-lg-8 col-md-10 mx-auto text-lg-start text-center">
+                                        <div className="glass-panel p-4 p-md-5 slide-in-up">
+                                            <h3 className="display-4 fw-bold text-primary mb-3">Harvesting Excellence,<br />Delivering Freshness</h3>
+                                            <p className="lead text-dark mb-4">DML Group is dedicated to delivering the freshest and highest quality seafood, sourced responsibly from the pristine waters of Mozambique.</p>
+                                            <div className="d-flex justify-content-lg-start justify-content-center align-items-center gap-3">
+                                                <button className="btn btn-primary-custom">
+                                                    <i className="fa-regular fa-circle-play me-2"></i> See how we work
+                                                </button>
+                                                <Link to="/contact-us" className="btn btn-outline-primary rounded-pill px-4 py-2 border-2 fw-bold">Contact Us</Link>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div className="contents contents-full d-lg-none ">
-                            <h3>Harvesting Excellence, Delivering Freshness</h3>
-                            <p>At DML Group, we are dedicated to delivering the freshest and highest quality seafood...</p>
-                            <div className="see-how-work justify-content-start align-items-center d-flex gap-2 px-3 mt-5">
-                                <i className="fa-regular fa-circle-play"></i><span className="text-white ">See how we work</span>
-                            </div>
-                        </div>
-                        <div className="counts d-none d-lg-block">
-                            <div className="row">
-                                <div className="col-md-3"><h3>{yearsOfExperience}</h3><p>years of experience</p></div>
-                                <div className="col-md-3"><h3>100%</h3><p>customer satisfaction rating</p></div>
-                                <div className="col-md-3"><h3>1000+</h3><p>orders delivered daily</p></div>
-                                <div className="col-md-3"><h3>10+</h3><p>healthy food products</p></div>
-                            </div>
-                        </div>
-                        <img src={banner1} className="d-block w-100" alt="First Slide" />
                     </div>
                 </div>
-                <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                    <span className="carousel-control-prev-icon" aria-hidden="true"></span><span className="visually-hidden">Previous</span>
-                </button>
-                <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                    <span className="carousel-control-next-icon" aria-hidden="true"></span><span className="visually-hidden">Next</span>
-                </button>
+
+                {/* Stats Overlay - Positioned appropriately */}
+                <div className="container position-relative d-none d-lg-block" style={{ marginTop: '-80px', zIndex: 10 }}>
+                    <div className="glass-panel p-4 shadow-lg text-center">
+                        <div className="row align-items-center">
+                            <div className="col border-end border-light">
+                                <h3 className="fw-bold mb-0 text-primary">{yearsOfExperience}</h3>
+                                <p className="small text-muted mb-0">Years Experience</p>
+                            </div>
+                            <div className="col border-end border-light">
+                                <h3 className="fw-bold mb-0 text-primary">100%</h3>
+                                <p className="small text-muted mb-0">Satisfaction</p>
+                            </div>
+                            <div className="col border-end border-light">
+                                <h3 className="fw-bold mb-0 text-primary">1000+</h3>
+                                <p className="small text-muted mb-0">Daily Orders</p>
+                            </div>
+                            <div className="col">
+                                <h3 className="fw-bold mb-0 text-primary">10+</h3>
+                                <p className="small text-muted mb-0">Product Lines</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             {/* About section */}
-            <div className="about pt-5">
+            <div className="section bg-white">
                 <div className="container">
-                    <div className="row">
-                        <div className="col-md-6 col-sm-12">
-                            <h3>ABOUT US</h3><h1>Our passion drives us to provide the finest, seafood</h1>
-                            <p class="text-justify mt-5">Diamante Mariscos is a Private Limited company dedicated to providing
-                                the healthiest protein to the community. In recent years, we have evolved from a seafood
-                                processing company to a group of companies in different areas of operations such as Sea food
-                                processing, Fish and meat import and its distribution Network, Agricultural commodity trade, Raw
-                                cashew nut export, Cashew nut processing and Agri/Animal farming to meet the needs of today’s
-                                consumers.</p>
-                            <p class="text-justify">Our Headquartered is in Angoche City of Mozambique, we have grown to employ
-                                more than 500 team members across 17 facilities in three countries, Mozambique, UAE (Dubai) and
-                                India and selling products across the Mozambique and the world.</p>
+                    <div className="row align-items-center g-5">
+                        <div className="col-lg-6 order-lg-1 order-2">
+                            <h6 className="text-uppercase text-primary fw-bold letter-spacing-2 mb-2">About Us</h6>
+                            <h2 className="display-6 fw-bold text-dark mb-4">Our passion drives us to provide the finest seafood.</h2>
+                            <p className="text-muted mb-4">Diamante Mariscos is a leading name in sustainable seafood processing and distribution. From our origins in processing, we have expanded into a diverse group covering seafood trade, agricultural commodities, cashew processing, and farming.</p>
+                            <p className="text-muted mb-4">Headquartered in Angoche City, Mozambique, we employ over 500 professionals across 17 facilities in Mozambique, UAE, and India, ensuring a global reach with local expertise.</p>
+                            <p className="text-muted">Our robust cold chain infrastructure, including 5000 tonnes of cold storage, guarantees the freshest, highest-quality products from catch to consumer.</p>
 
-                            <p class="text-justify">We have a cold chain from fishing to processing and distribution to provide
-                                our customers with the freshest, highest-quality, most sustainable products possible. We have
-                                5000 tonnes of cold storage capacity installed across Mozambique for the storage and
-                                distribution cold chain to meet our customers’ satisfaction.</p>
+                            <Link to="/about-us" className="btn btn-outline-primary rounded-pill mt-3 px-4">Read More</Link>
                         </div>
-                        <div className="col-md-6 col-sm-12 justify-content-center align-items-center d-flex">
-                            <img className="about-pic" src={aboutPic} alt="About us" />
+                        <div className="col-lg-6 order-lg-2 order-1">
+                            <div className="position-relative">
+                                <div className="about-pic-wrapper overflow-hidden rounded-4 shadow-lg">
+                                    <img className="img-fluid w-100 scale-on-hover" src={aboutPic} alt="About us" />
+                                </div>
+                                <div className="position-absolute bg-primary text-white p-4 rounded-4 shadow-lg d-none d-md-block" style={{ bottom: '-30px', left: '-30px', maxWidth: '200px' }}>
+                                    <h3 className="fw-bold mb-0">15+</h3>
+                                    <small>Years of Excellence in Seafood Industry</small>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
             {/* Products Area */}
-            <div className="food-area p-5">
+            <div className="section bg-light">
                 <div className="container">
-                    <h3 className="text-center">OUR EXQUISITE PRODUCTS</h3>
-                    <div className="sea-food-area food-section">
-                        <h1 className="text-center">Seafood Symphony</h1>
-                        <div className="row gallery pt-5">
-                            {/* <div className="col-md-3 col-sm-2 cardz"><img src={image1} alt="Salmon" /><div className="fish-title">Salmon</div></div>
-                            <div className="col-md-3 col-sm-2 cardz"><img src={image2} alt="Tuna" /><div className="fish-title">Tuna</div></div> */}
-                            <div className="col-md-3 col-sm-2 cardz"><img src={squid} alt="Squid" /><div className="fish-title">Squid</div></div>
-                            <div className="col-md-3 col-sm-2 cardz"><img src={oyster} alt="Oyster" /><div className="fish-title">Oyster</div></div>
-                            <div className="col-md-3 col-sm-2 cardz"><img src={cuttlefish} alt="Cuttlefish" /><div className="fish-title">Cuttlefish</div></div>
-                            <div className="col-md-3 col-sm-2 cardz"><img src={image4} alt="Lobster" /><div className="fish-title">Lobster</div></div>
-                        </div>
-                        <div className="row gallery pt-5">
-                            <div className="col-md-3 col-sm-2 cardz"><img src={image5} alt="Prawns" /><div className="fish-title">Prawns</div></div>
-                            <div className="col-md-3 col-sm-2 cardz"><img src={image6} alt="Crab" /><div className="fish-title">Crab</div></div>
-                            <div className="col-md-3 col-sm-2 cardz"><img src={image7} alt="Red Snapper" /><div className="fish-title">Red Snapper</div></div>
-                            {/* <div className="col-md-3 col-sm-2 cardz"><img src={image8} alt="Tuna" /><div className="fish-title">Tuna</div></div> */}
-                            <div className="col-md-3 col-sm-2 cardz"><img src={image3} alt="Octopus" /><div className="fish-title">Octopus</div></div>
-
-                        </div>
+                    <div className="text-center mb-5">
+                        <h6 className="text-uppercase text-primary fw-bold mb-2">Our Exquisite Products</h6>
+                        <h2 className="display-5 fw-bold">Seafood Symphony</h2>
                     </div>
 
-
+                    <div className="row g-4 justify-content-center">
+                        {[
+                            { img: squid, title: "Squid" },
+                            { img: oyster, title: "Oyster" },
+                            { img: cuttlefish, title: "Cuttlefish" },
+                            { img: image4, title: "Lobster" },
+                            { img: image5, title: "Prawns" },
+                            { img: image6, title: "Crab" },
+                            { img: image7, title: "Red Snapper" },
+                            { img: image3, title: "Octopus" }
+                        ].map((item, index) => (
+                            <div className="col-lg-3 col-md-4 col-6" key={index}>
+                                <div className="card border-0 shadow-card h-100 overflow-hidden text-center product-card-hover">
+                                    <div className="card-img-top overflow-hidden position-relative" style={{ height: '200px' }}>
+                                        <img src={item.img} alt={item.title} className="w-100 h-100 object-fit-cover transition-transform" />
+                                        <div className="overlay-gradient position-absolute top-0 start-0 w-100 h-100 opacity-0 transition-opacity d-flex align-items-center justify-content-center bg-primary-transparent">
+                                            <span className="text-white fw-bold border border-white rounded-pill px-3 py-1">View</span>
+                                        </div>
+                                    </div>
+                                    <div className="card-body bg-white">
+                                        <h5 className="card-title fw-bold text-dark mb-0">{item.title}</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
 
             {/* Testimonial area */}
-            <div className="testimonial pt-5 pb-5">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-md-8 col-sm-12"><h3>TESTIMONIALS</h3><h1>What Our Customers Say About Us</h1></div>
-                        <div className="col-md-4 col-sm-12"><div className="testimonial-arrows"><i className="fa-solid testimonial-arrow fa-arrow-left"></i><i className="fa-solid testimonial-arrow fa-arrow-right"></i></div></div>
+            <div className="section position-relative overflow-hidden" style={{ background: 'var(--gradient-soft)' }}>
+                <div className="container position-relative z-1">
+                    <div className="row align-items-center mb-5">
+                        <div className="col-md-8">
+                            <h6 className="text-uppercase text-primary fw-bold mb-2">Testimonials</h6>
+                            <h2 className="display-5 fw-bold">What Our Customers Say</h2>
+                        </div>
+                        <div className="col-md-4 text-md-end mt-3 mt-md-0">
+                            <button className="btn btn-outline-primary rounded-circle me-2 p-3"><i className="fa-solid fa-arrow-left"></i></button>
+                            <button className="btn btn-primary rounded-circle p-3 text-white"><i className="fa-solid fa-arrow-right"></i></button>
+                        </div>
                     </div>
-                    <div className="row testimonials">
-                        <div className="col-md-12 col-sm-12">
-                            <div className="card d-flex flex-row"><img src={quoteIcon} className="quote" alt="Quote" />
-                                <div><p>This store is dedicated to delivering unparalleled quality and maintaining the highest standards of hygiene. From premium seafood to frozen chicken and globally sourced fish, every product reflects a commitment to freshness and excellence. Complemented by a team of friendly and attentive staff, each visit is designed to ensure customer satisfaction and a consistently superior shopping experience.
 
-                                </p><div className="rating"><img src={rating5} alt="Rating" /></div></div>
+                    <div className="row">
+                        <div className="col-12">
+                            <div className="glass-panel p-5 shadow-lg position-relative">
+                                <i className="fa-solid fa-quote-left text-primary opacity-25 display-1 position-absolute top-0 start-0 ms-4 mt-2"></i>
+                                <div className="row align-items-center position-relative z-1">
+                                    <div className="col-lg-12">
+                                        <p className="lead fst-italic text-dark mb-4" style={{ lineHeight: '1.8' }}>
+                                            "This store is dedicated to delivering unparalleled quality and maintaining the highest standards of hygiene. From premium seafood to frozen chicken and globally sourced fish, every product reflects a commitment to freshness and excellence. Complemented by a team of friendly and attentive staff, each visit is designed to ensure customer satisfaction."
+                                        </p>
+                                        <div className="d-flex align-items-center gap-3">
+                                            <div className="d-flex text-warning">
+                                                <i className="fa-solid fa-star"></i>
+                                                <i className="fa-solid fa-star"></i>
+                                                <i className="fa-solid fa-star"></i>
+                                                <i className="fa-solid fa-star"></i>
+                                                <i className="fa-solid fa-star"></i>
+                                            </div>
+                                            <span className="fw-bold text-dark">- Verified Customer</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -170,95 +219,132 @@ const Home = () => {
             </div>
 
             {/* OUR VISION */}
-            <div className="vision py-5 bg-dml-blue">
-                <div className="container">
-                    <h1 className="text-center text-white">Our Vision</h1>
-                    <div class="row py-5 text-white d-flex justify-content-center align-items-center">
-                        <div class=" px-4  border-top border-bottom py-3 border-dark-subtle border-dashed">
-                            <h5><i class="fa-solid fa-trophy me-2"></i><strong>Be the global leader</strong></h5>
-                            <p class="text-justify text-white-50">
-                                We strive to set the industry standard by driving innovation, sustainability, and excellence in everything we do.
-                            </p>
-                        </div>
-
-                        <div class=" px-4   py-3 border-dark-subtle border-dashed">
-                            <h5><i class="fa-solid fa-briefcase me-2"></i><strong>Create jobs for Mozambique's youth</strong></h5>
-                            <p class="text-justify text-white-50">
-                                By investing in local talent and industries, we provide meaningful employment opportunities that contribute to economic growth and stability.
-                            </p>
-                        </div>
-
-                        <div class=" px-4 border-top border-bottom py-3 border-dark-subtle border-dashed">
-                            <h5><i class="fa-solid fa-graduation-cap me-2"></i><strong>Empower the next generation</strong></h5>
-                            <p class="text-justify text-white-50">
-                                Through education, training, and mentorship, we equip young people with the skills and knowledge to build a brighter future.
-                            </p>
-                        </div>
+            <div className="section bg-primary text-white position-relative overflow-hidden">
+                <div className="container position-relative z-1">
+                    <div className="text-center mb-5">
+                        <h2 className="display-5 fw-bold text-white">Our Vision</h2>
+                        <div className="bg-white opacity-25 mx-auto mt-3" style={{ height: '4px', width: '60px', borderRadius: '2px' }}></div>
                     </div>
 
+                    <div className="row g-4 text-center">
+                        <div className="col-md-4">
+                            <div className="glass-panel bg-white bg-opacity-10 p-4 h-100 border-0">
+                                <div className="mb-4 d-inline-block p-3 rounded-circle bg-white bg-opacity-25">
+                                    <i className="fa-solid fa-trophy fa-2x text-white"></i>
+                                </div>
+                                <h4 className="fw-bold text-warning mb-3">Global Leader</h4>
+                                <p className="text-white-50">Striving to set the industry standard by driving innovation, sustainability, and excellence in every aspect of our operations.</p>
+                            </div>
+                        </div>
+                        <div className="col-md-4">
+                            <div className="glass-panel bg-white bg-opacity-10 p-4 h-100 border-0">
+                                <div className="mb-4 d-inline-block p-3 rounded-circle bg-white bg-opacity-25">
+                                    <i className="fa-solid fa-briefcase fa-2x text-white"></i>
+                                </div>
+                                <h4 className="fw-bold text-warning mb-3">Job Creation</h4>
+                                <p className="text-white-50">Investing in local talent to provide meaningful employment opportunities that contribute to economic growth in Mozambique.</p>
+                            </div>
+                        </div>
+                        <div className="col-md-4">
+                            <div className="glass-panel bg-white bg-opacity-10 p-4 h-100 border-0">
+                                <div className="mb-4 d-inline-block p-3 rounded-circle bg-white bg-opacity-25">
+                                    <i className="fa-solid fa-graduation-cap fa-2x text-white"></i>
+                                </div>
+                                <h4 className="fw-bold text-warning mb-3">Empowerment</h4>
+                                <p className="text-white-50">Equipping the next generation with skills, knowledge, and mentorship to build a brighter, more sustainable future.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             {/* Our mission */}
-            <div className="missions py-5 te">
+            <div className="section bg-light">
                 <div className="container">
-                    <h1 className="text-center">Our Mission</h1>
-                    <div className="row mission">
-                        <div className="col-md-6 d-none d-md-flex justify-content-end align-items-center border-right p-5"><div className="mission-icon d-flex justify-content-center align-items-center"><img src={sustainabilityIcon} alt="Sustainability" /></div></div>
-                        <div className="col-md-6 log-lg-12 p-5"><h1>01</h1><h2>Provide the healthiest protein worldwide.</h2><p>We are committed to delivering the highest quality, nutrient-rich protein to consumers worldwide, ensuring health and sustainability. Our products are carefully sourced and processed to maintain superior nutritional value.</p></div>
+                    <div className="text-center mb-5">
+                        <h6 className="text-uppercase text-primary fw-bold mb-2">Our Core Values</h6>
+                        <h2 className="display-5 fw-bold">Our Mission</h2>
                     </div>
-                    <div className="row mission">
-                        <div className="col-md-6 log-lg-12 p-5 border-right"><h1>02</h1><h2>Add value to Mozambique’s natural resources.</h2><p>By responsibly utilizing Mozambique’s abundant natural resources, we create economic opportunities and sustainable growth. Our approach focuses on ethical sourcing, local partnerships, and long-term environmental stewardship.</p></div>
-                        <div className="col-md-6 d-none d-md-flex align-items-center p-5"><div className="mission-icon d-flex justify-content-center align-items-center"><img src={sustainabilityIcon} alt="Sustainability" /></div></div>
+
+                    <div className="row g-5">
+                        <div className="col-md-4">
+                            <div className="card h-100 shadow-card border-0 p-4 hover-lift">
+                                <div className="d-flex align-items-center mb-3">
+                                    <span className="display-4 fw-bold text-primary opacity-25 me-3">01</span>
+                                    <div className="rounded-circle bg-primary bg-opacity-10 p-3">
+                                        <img src={sustainabilityIcon} alt="Sustainability" style={{ width: '30px', height: '30px' }} />
+                                    </div>
+                                </div>
+                                <h4 className="fw-bold mb-3">Healthiest Protein</h4>
+                                <p className="text-muted">Delivering the highest quality, nutrient-rich protein to consumers worldwide, ensuring health and sustainability through careful sourcing.</p>
+                            </div>
+                        </div>
+                        <div className="col-md-4">
+                            <div className="card h-100 shadow-card border-0 p-4 hover-lift">
+                                <div className="d-flex align-items-center mb-3">
+                                    <span className="display-4 fw-bold text-primary opacity-25 me-3">02</span>
+                                    <div className="rounded-circle bg-primary bg-opacity-10 p-3">
+                                        <i className="fa-solid fa-leaf text-primary fa-lg"></i>
+                                    </div>
+                                </div>
+                                <h4 className="fw-bold mb-3">Add Value Locally</h4>
+                                <p className="text-muted">Responsibly utilizing Mozambique’s natural resources to create economic opportunities, focusing on ethical sourcing and stewardship.</p>
+                            </div>
+                        </div>
+                        <div className="col-md-4">
+                            <div className="card h-100 shadow-card border-0 p-4 hover-lift">
+                                <div className="d-flex align-items-center mb-3">
+                                    <span className="display-4 fw-bold text-primary opacity-25 me-3">03</span>
+                                    <div className="rounded-circle bg-primary bg-opacity-10 p-3">
+                                        <i className="fa-solid fa-handshake text-primary fa-lg"></i>
+                                    </div>
+                                </div>
+                                <h4 className="fw-bold mb-3">Global Partnerships</h4>
+                                <p className="text-muted">Collaborating with trusted global producers who prioritize quality and ethics, ensuring every product meets high standards.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div className="row mission">
-                        <div className="col-md-6 d-none d-md-flex justify-content-end align-items-center border-right p-5"><div className="mission-icon d-flex justify-content-center align-items-center"><img src={sustainabilityIcon} alt="Sustainability" /></div></div>
-                        <div className="col-md-6 log-lg-12 p-5"><h1>03</h1><h2>Source from global producers with shared values.</h2><p>We collaborate with trusted global producers who prioritize quality, sustainability, and ethical practices. This ensures that every product we offer meets the highest standards of responsibility and excellence.</p></div>
-                    </div>
-                    <div className="more-products py-5">
-                        <h3>MORE TYPE OF</h3><h1 className="mb-5">Our Products</h1>
-                        <div className="row products-bg">
-                            <div className="col-md-3 col-sm-12 text-center text-white p-5 product">
-                                <Link to="/fish-process" className="text-decoration-none text-white" >
-                                    <i className="fa-solid fa-fish"></i>
-                                    <h4 className="mb-5">Seafood Processing</h4>
-                                    <p className="text-white">
-                                        Harvested from the pristine, crystal-clear waters of Mozambique, our seafood is carefully selected to meet the highest standards of quality. Delivered globally, we ensure year-round availability, bringing exceptional freshness and unbeatable taste to tables around the world.
-                                    </p>
+
+                    {/* More Products Section */}
+                    <div className="mt-5 pt-5">
+                        <div className="row g-4">
+                            <div className="col-lg-3 col-md-6">
+                                <Link to="/fish-process" className="card h-100 border-0 shadow-lg bg-primary text-white text-decoration-none transition-transform hover-translate-up">
+                                    <div className="card-body p-4 text-center">
+                                        <i className="fa-solid fa-fish fa-3x mb-4 text-white-50"></i>
+                                        <h4 className="fw-bold text-white mb-3">Seafood Processing</h4>
+                                        <p className="text-white-50 small">Harvested from pristine waters, delivered globally with exceptional freshness.</p>
+                                    </div>
                                 </Link>
                             </div>
-
-                            <div className="col-md-3 col-sm-12 text-center text-white p-5 product">
-                                <Link to="/frozen-trade" className="text-decoration-none text-white" >
-                                    <i className="fa-solid fa-store"></i>
-                                    <h4 className="mb-5">Frozen Trade</h4>
-                                    <p className="text-white">
-                                        Freshness Preserved in Every Freeze – Premium Frozen Seafood, Chicken, and Meat, available in stores nationwide. With strict hygiene practices, we guarantee consistent quality and freshness throughout Mozambique.
-                                    </p>
+                            <div className="col-lg-3 col-md-6">
+                                <Link to="/frozen-trade" className="card h-100 border-0 shadow-lg bg-success text-white text-decoration-none transition-transform hover-translate-up">
+                                    <div className="card-body p-4 text-center">
+                                        <i className="fa-solid fa-store fa-3x mb-4 text-white-50"></i>
+                                        <h4 className="fw-bold text-white mb-3">Frozen Trade</h4>
+                                        <p className="text-white-50 small">Premium frozen seafood, chicken, and meat with guaranteed consistent quality.</p>
+                                    </div>
                                 </Link>
                             </div>
-
-                            <div className="col-md-3 col-sm-12 text-center text-white p-5 product">
-                                <Link to="/farming" className="text-decoration-none text-white" >
-                                    <i className="fa-solid fa-tractor"></i>
-                                    <h4 className="mb-5">Farming</h4>
-                                    <p className="text-white">
-                                        Farming includes agricultural crop production covering cereals, fruits, and vegetables, poultry farming dedicated to raising birds for meat and eggs, animal rearing for livestock development and care, and the international trade of agricultural commodities, ensuring surplus produce and poultry goods reach markets worldwide.
-                                    </p>
+                            <div className="col-lg-3 col-md-6">
+                                <Link to="/farming" className="card h-100 border-0 shadow-lg bg-warning text-white text-decoration-none transition-transform hover-translate-up">
+                                    <div className="card-body p-4 text-center">
+                                        <i className="fa-solid fa-tractor fa-3x mb-4 text-white-50"></i>
+                                        <h4 className="fw-bold text-white mb-3">Farming</h4>
+                                        <p className="text-white-50 small">Agricultural crop production, poultry farming, and livestock development.</p>
+                                    </div>
                                 </Link>
                             </div>
-
-                            <div className="col-md-3 col-sm-12 text-center text-white p-5 product">
-                                <Link to="/cashew-processing" className="text-decoration-none text-white" >
-                                    <i className="fa-solid fa-seedling"></i>
-                                    <h4 className="mb-5">Cashew Processing</h4>
-                                    <p className="text-white">
-                                        From the heart of Mozambique, cashews are handpicked from sun-kissed trees, skillfully processed with a focus on quality, and shared across global markets. A natural delicacy, nurtured with care and sustaining worldwide trade.
-                                    </p>
+                            <div className="col-lg-3 col-md-6">
+                                <Link to="/cashew-processing" className="card h-100 border-0 shadow-lg bg-info text-white text-decoration-none transition-transform hover-translate-up">
+                                    <div className="card-body p-4 text-center">
+                                        <i className="fa-solid fa-seedling fa-3x mb-4 text-white-50"></i>
+                                        <h4 className="fw-bold text-white mb-3">Cashew Processing</h4>
+                                        <p className="text-white-50 small">Handpicked cashews, skillfully processed for quality and global markets.</p>
+                                    </div>
                                 </Link>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -273,17 +359,17 @@ const Home = () => {
                                 <div className="col-md-6"><i className="fa-solid fa-star"></i><h3>Uncompromising Quality</h3>
                                     <p className="text-justify">Every detail is crafted with precision, every material is chosen for excellence, and every effort is focused on perfection. True quality requires dedication and care, which is why we ensure that everything we create meets the highest standards. From start to finish, our commitment remains unwavering, delivering the best in craftsmanship, performance, and reliability.                              </p></div>
                                 <div className="col-md-6"><i className="fa-solid fa-book-open-reader"></i><h3>Sustainability Leadership</h3>
-                                <p className="text-justify">Leading with a focus on sustainability in frozen foods and agri-food systems means utilizing energy-efficient freezing methods, reducing waste, sourcing responsibly, and preserving nutritional value. These efforts not only enhance food security and lower environmental impact but also support a more sustainable food supply chain and promote long-term economic resilience for future generations.
+                                    <p className="text-justify">Leading with a focus on sustainability in frozen foods and agri-food systems means utilizing energy-efficient freezing methods, reducing waste, sourcing responsibly, and preserving nutritional value. These efforts not only enhance food security and lower environmental impact but also support a more sustainable food supply chain and promote long-term economic resilience for future generations.
 
-</p></div>
+                                    </p></div>
                             </div>
                             <div className="row mt-5">
                                 <div className="col-md-6"><i className="fa-solid fa-earth-americas"></i><h3>Global Reach, Local Expertise</h3>
-                                <p className="text-justify">We bridge international innovation with local knowledge to create sustainable, high-quality frozen foods and agri-food solutions. By leveraging global supply chains while understanding local agricultural practices, consumer preferences, and market demands, we deliver products that align with both environmental sustainability and evolving customer needs, ensuring a more adaptive and resilient food ecosystem.</p></div>
+                                    <p className="text-justify">We bridge international innovation with local knowledge to create sustainable, high-quality frozen foods and agri-food solutions. By leveraging global supply chains while understanding local agricultural practices, consumer preferences, and market demands, we deliver products that align with both environmental sustainability and evolving customer needs, ensuring a more adaptive and resilient food ecosystem.</p></div>
                                 <div className="col-md-6"><i className="fa-solid fa-person-circle-check"></i><h3>Customer-Centric Approach</h3>
-                                <p className="text-justify">We prioritize understanding and meeting customer needs, preferences, and expectations at every stage, ensuring personalized experiences and delivering solutions that enhance satisfaction. By fostering strong relationships and continuously innovating to exceed expectations, we build trust, drive loyalty, and create lasting value for our customers worldwide.
+                                    <p className="text-justify">We prioritize understanding and meeting customer needs, preferences, and expectations at every stage, ensuring personalized experiences and delivering solutions that enhance satisfaction. By fostering strong relationships and continuously innovating to exceed expectations, we build trust, drive loyalty, and create lasting value for our customers worldwide.
 
-</p></div>
+                                    </p></div>
                             </div>
                         </div>
                     </div>
@@ -291,18 +377,32 @@ const Home = () => {
             </div>
 
             {/* Usually Asked Questions */}
-            <div className="usually-asked">
+            <div className="section bg-white">
                 <div className="container">
-                    <h3>WHAT PEOPLE</h3><h1 className="mb-5">Usually Asked</h1>
-                    <div className="row d-flex flex-column gap-2">
-                        {faqData.map((faq, index) => (
-                            <div className="col-md-8 ms-auto" key={index}>
-                                <div className={`card px-3 faq py-3 ${activeFaqIndex === index ? 'active' : ''}`} onClick={() => handleFaqClick(index)}>
-                                    <div className="d-flex flex-row align-items-center"><h5><strong>{faq.question}</strong></h5><i className="fa-solid fa-chevron-down ms-auto"></i></div>
-                                    <div className="explanation">{faq.answer}</div>
-                                </div>
+                    <div className="text-center mb-5">
+                        <h6 className="text-uppercase text-primary fw-bold mb-2">FAQ</h6>
+                        <h2 className="display-5 fw-bold">Usually Asked Questions</h2>
+                    </div>
+                    <div className="row justify-content-center">
+                        <div className="col-lg-8">
+                            <div className="accordion-wrapper" style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+                                {faqData.map((faq, index) => (
+                                    <div className={`card border-0 shadow-sm transition-fast ${activeFaqIndex === index ? 'active shadow-lg' : ''}`} key={index}
+                                        style={{ overflow: 'hidden', cursor: 'pointer', transition: 'all 0.3s ease' }}
+                                        onClick={() => handleFaqClick(index)}>
+                                        <div className={`card-header bg-white border-0 p-4 d-flex align-items-center justify-content-between ${activeFaqIndex === index ? 'bg-light' : ''}`}>
+                                            <h5 className={`mb-0 fw-bold ${activeFaqIndex === index ? 'text-primary' : 'text-dark'}`}>{faq.question}</h5>
+                                            <i className={`fa-solid fa-chevron-down transition-transform ${activeFaqIndex === index ? 'rotate-180' : ''}`}></i>
+                                        </div>
+                                        {activeFaqIndex === index && (
+                                            <div className="card-body px-4 pb-4 pt-0">
+                                                <p className="text-muted mb-0">{faq.answer}</p>
+                                            </div>
+                                        )}
+                                    </div>
+                                ))}
                             </div>
-                        ))}
+                        </div>
                     </div>
                 </div>
             </div>

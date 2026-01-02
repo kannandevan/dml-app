@@ -14,7 +14,7 @@ const Header = () => {
     };
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light top-nav sticky-top">
+        <nav className="navbar navbar-expand-lg top-nav sticky-top">
             <div className="container">
                 {/* Brand Logo */}
                 <Link className="navbar-brand" to="/" onClick={handleLinkClick}>
