@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route,HashRouter } from 'react-router-dom';
 // Import Layout and all page components
 import Layout from './components/Layout';
 import Home from './pages/Home';
