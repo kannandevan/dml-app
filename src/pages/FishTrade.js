@@ -1,16 +1,16 @@
 import React from 'react';
 
 // Import images
-import heroImage from '../images/fish-trade.webp';
-import infraImage from '../images/fish-trade01.jpg';
-import storageImage from '../images/fish-trade02.jpg';
-import safetyImage from '../images/fish-trade03.jpg';
-import supportImage from '../images/fish-trade04.jpg';
+import heroImage from '../images/hero_fish_trade_new.png';
+import infraImage from '../images/infra_cold_chain.png';
+import storageImage from '../images/infra_cold_storage.png';
+import safetyImage from '../images/infra_food_safety.png';
+import supportImage from '../images/infra_cold_chain.png'; // Reusing logical image
 
-import productHorseMackerel from '../images/products/frozen-fish01.webp';
-import productChubMackerel from '../images/products/frozen-fish02.webp';
-import productSardine from '../images/products/frozen-fish03.webp';
-import productSprat from '../images/products/frozen-fish04.webp';
+import productHorseMackerel from '../images/prod_horse_mackerel.png';
+import productChubMackerel from '../images/prod_chub_mackerel.png';
+import productSardine from '../images/prod_sardine.png';
+import productSprat from '../images/prod_sprat.png';
 
 const FishTrade = () => {
     return (

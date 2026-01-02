@@ -1,4 +1,5 @@
 import React from 'react';
+import heroImage from '../images/hero_agri_trade_new.png';
 import peaImage from '../images/pea.png';
 import wheatImage from '../images/wheat.jpg';
 
@@ -6,7 +7,7 @@ const AgriTrade = () => {
     return (
         <div className="page-wrapper bg-light">
             {/* Hero Section */}
-            <section className="position-relative py-5 text-white" style={{ background: `url(${wheatImage}) center/cover no-repeat fixed`, minHeight: '600px', display: 'flex', alignItems: 'center' }}>
+            <section className="position-relative py-5 text-white" style={{ background: `url(${heroImage}) center/cover no-repeat fixed`, minHeight: '600px', display: 'flex', alignItems: 'center' }}>
                 <div className="position-absolute top-0 start-0 w-100 h-100 bg-black opacity-80"></div>
 
                 <div className="container position-relative z-2">

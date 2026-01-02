@@ -1,5 +1,5 @@
 import React from 'react';
-import heroImage from '../images/Socialcommitment.png';
+import heroImage from '../images/hero_social_commitment_new.png';
 import housingFinanceImage from '../images/Housing Finance.jpeg';
 import microFinanceImage from '../images/microFinance.jpeg';
 import genderEqualityImage from '../images/genderEquality.jpeg';

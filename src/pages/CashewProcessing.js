@@ -1,8 +1,8 @@
 import React from 'react';
 
-import carouselImg1 from '../images/image/createmultimedia_n_a_bustling_factory_setting_a_diverse_group_o_86836805-b365-41c9-9236-8a112e55eb2e.png';
-import carouselImg2 from '../images/image/createmultimedia_n_a_bustling_factory_setting_a_diverse_group_o_ccabe09b-524c-4f70-9c55-03142b3fe276.png';
-import sustainabilityImg from '../images/image/RJXywEoYOK4hONGeUBeS9r5qE7LBRLqNpeWiI7T2TBqIC9gnA.jpg';
+import carouselImg1 from '../images/hero_cashew_processing_new.png';
+import carouselImg2 from '../images/factory_interior.png';
+import sustainabilityImg from '../images/sustainability_banner.png';
 
 const CashewProcessing = () => {
     return (

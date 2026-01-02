@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import heroImage from '../images/frozen-fish.png';
+import heroImage from '../images/hero_frozen_trade_new.png';
 
 import chickenWings from '../images/products/forzen-wings.webp';
 import chickenUpperBack from '../images/products/uper-back.webp';
@@ -12,10 +12,10 @@ import wholeChicken from '../images/products/whole-chicken.webp';
 import beefWhole from '../images/products/frozen-beaf-whole.webp';
 import beefLiver from '../images/products/frozen-beaf-liver.webp';
 
-import fishHorseMackerel from '../images/products/frozen-fish01.webp';
-import fishChubMackerel from '../images/products/frozen-fish02.webp';
-import fishSardine from '../images/products/frozen-fish03.webp';
-import fishSprat from '../images/products/frozen-fish04.webp';
+import fishHorseMackerel from '../images/prod_horse_mackerel.png';
+import fishChubMackerel from '../images/prod_chub_mackerel.png';
+import fishSardine from '../images/prod_sardine.png';
+import fishSprat from '../images/prod_sprat.png';
 
 const FrozenTrade = () => {
     const [activeCategory, setActiveCategory] = useState('frozen-chicken');

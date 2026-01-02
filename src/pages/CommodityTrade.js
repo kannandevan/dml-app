@@ -1,4 +1,5 @@
 import React from 'react';
+import heroImage from '../images/hero_commodity_trade_new.png';
 import riceImage from '../images/rice.webp';
 import flourImage from '../images/floor.jpg';
 import sugarImage from '../images/suagr2.webp';
@@ -8,7 +9,7 @@ const CommodityTrade = () => {
     return (
         <div className="page-wrapper bg-light">
             {/* Hero Section */}
-            <section className="position-relative py-5 text-white" style={{ background: `url(${riceImage}) center/cover no-repeat fixed`, minHeight: '550px', display: 'flex', alignItems: 'center' }}>
+            <section className="position-relative py-5 text-white" style={{ background: `url(${heroImage}) center/cover no-repeat fixed`, minHeight: '550px', display: 'flex', alignItems: 'center' }}>
                 <div className="position-absolute top-0 start-0 w-100 h-100 bg-black opacity-80"></div>
                 <div className="container position-relative z-2 text-center">
                     <span className="badge bg-warning text-dark mb-4 px-4 py-2 rounded-pill fw-bold letter-spacing-2 shadow">ESSENTIAL GOODS</span>

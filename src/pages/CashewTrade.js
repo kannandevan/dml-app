@@ -1,6 +1,7 @@
 import React from 'react';
-import cashewNutImage from '../images/cashew_nut.webp';
-import galleryImg1 from '../images/images.jpeg';
+import heroImage from '../images/hero_cashew_trade_new.png';
+import cashewNutImage from '../images/cashew_pile_raw.png';
+import galleryImg1 from '../images/cashew_gallery_1.png';
 import galleryImg2 from '../images/69a8b6_1f6e49dad7a4435192bdffa41819a4bf.png';
 import galleryImg3 from '../images/69a8b6_2ff41843b7b740ba96da89a8b088d875.jpg';
 import galleryImg4 from '../images/69a8b6_ec5f09df23b54e55b7858c885aa3bc42.jpg';
@@ -12,7 +13,7 @@ const CashewTrade = () => {
     return (
         <div className="page-wrapper bg-light">
             {/* Hero Section */}
-            <section className="position-relative py-5 text-white" style={{ background: `url(${cashewNutImage}) center/cover no-repeat fixed`, minHeight: '550px', display: 'flex', alignItems: 'center' }}>
+            <section className="position-relative py-5 text-white" style={{ background: `url(${heroImage}) center/cover no-repeat fixed`, minHeight: '550px', display: 'flex', alignItems: 'center' }}>
                 <div className="position-absolute top-0 start-0 w-100 h-100 bg-black opacity-80"></div>
                 <div className="container position-relative z-2 text-center">
                     <span className="badge bg-white text-dark mb-4 px-4 py-2 rounded-pill fw-bold letter-spacing-2 shadow">EXPORT QUALITY</span>
