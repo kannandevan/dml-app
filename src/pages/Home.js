@@ -103,70 +103,95 @@ const Home = () => {
                 </div>
             )}
 
-            {/* Unique Cinematic Hero Section */}
-            <div className="hero-section-cinematic position-relative overflow-hidden vh-100 d-flex align-items-center">
-                {/* Full Width Background Carousel */}
-                <div id="heroCarousel" className="carousel slide carousel-fade position-absolute top-0 start-0 w-100 h-100 z-0" data-bs-ride="carousel" data-bs-interval="5000" data-bs-pause="false">
-                    <div className="carousel-inner h-100">
-                        <div className="carousel-item active h-100">
-                            <div className="d-block w-100 h-100" style={{
-                                backgroundImage: `url(${banner1})`,
-                                backgroundSize: 'cover',
-                                backgroundPosition: 'center'
-                            }}></div>
-                            <div className="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-40"></div>
-                        </div>
-                        <div className="carousel-item h-100">
-                            <div className="d-block w-100 h-100" style={{
-                                backgroundImage: `url(${slider2Img1})`,
-                                backgroundSize: 'cover',
-                                backgroundPosition: 'center'
-                            }}></div>
-                            <div className="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-40"></div>
-                        </div>
-                        <div className="carousel-item h-100">
-                            <div className="d-block w-100 h-100" style={{
-                                backgroundImage: `url(${image3})`,
-                                backgroundSize: 'cover',
-                                backgroundPosition: 'center'
-                            }}></div>
-                            <div className="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-40"></div>
-                        </div>
-                    </div>
-                </div>
+            {/* Editorial Focus Hero (V9) */}
+            <div className="hero-v9-container">
+                <div className="container-fluid p-0">
+                    <div className="row g-0 align-items-center">
 
-                {/* Floating Glass Content */}
-                <div className="container position-relative z-1">
-                    <div className="row">
-                        <div className="col-lg-7 col-xl-6">
-                            <div className="glass-panel p-5 rounded-4 shadow-lg border-start border-4 border-primary slide-in-up" style={{ backdropFilter: 'blur(16px)', background: 'rgba(255, 255, 255, 0.85)' }}>
-                                <span className="badge bg-primary px-3 py-2 rounded-pill fw-bold letter-spacing-2 mb-3 shadow-sm">EST. 2010</span>
-                                <h1 className="display-4 fw-bold text-dark mb-4 lh-sm">
-                                    Harvesting Excellence, <br />
-                                    <span className="text-primary-gradient">Delivering Freshness.</span>
-                                </h1>
-                                <p className="lead text-dark opacity-75 mb-5 fw-medium">
-                                    DML Group is dedicated to delivering the freshest and highest quality seafood, sourced responsibly from the pristine waters of Mozambique to your table.
-                                </p>
-                                <div className="d-flex flex-wrap gap-3">
-                                    <button className="btn btn-primary shadow-lg rounded-pill px-5 py-3 fw-bold letter-spacing-1 btn-hover-scale">
-                                        Explore Products
-                                    </button>
-                                    <Link to="/contact-us" className="btn btn-outline-dark rounded-pill px-5 py-3 fw-bold border-2 btn-hover-scale">
-                                        Partner With Us
-                                    </Link>
+                        {/* Left: Defined Typography */}
+                        <div className="col-lg-5 hero-v9-content slide-in-up">
+                            <div className="d-flex align-items-center mb-4">
+                                <span className="bg-dark text-white fw-bold px-3 py-1 rounded-1 text-uppercase small letter-spacing-2">Est. 2010</span>
+                                <div className="ms-3 h-px bg-dark opacity-10 flex-grow-1" style={{ height: '1px' }}></div>
+                            </div>
+
+                            <h1 className="display-3 fw-bold text-dark mb-4 lh-tight">
+                                Harvesting <span className="text-primary">Excellence</span>,<br />
+                                <span className="fst-italic fw-light text-secondary">Exporting Quality.</span>
+                            </h1>
+
+                            <p className="lead text-muted mb-5 fw-normal" style={{ maxWidth: '500px' }}>
+                                From the pristine waters of Mozambique to the global table. DML Group delivers premium sustainable seafood and agricultural products with unmatched freshness.
+                            </p>
+
+                            <div className="d-flex flex-wrap gap-3 mb-5">
+                                <button className="btn btn-primary rounded-0 px-5 py-3 fw-bold letter-spacing-1 shadow-lg btn-hover-scale">
+                                    DISCOVER COLLECTION
+                                </button>
+                                <Link to="/contact-us" className="btn btn-outline-dark rounded-0 px-5 py-3 fw-bold border-2 btn-hover-scale">
+                                    PARTNER WITH US
+                                </Link>
+                            </div>
+
+                            {/* Thumbnails to showcase variety */}
+                            <div className="hero-v9-thumbnails">
+                                {[seafoodBg, frozenBg, cashewBg].map((img, idx) => (
+                                    <div key={idx} className="hero-v9-thumb" onClick={() => document.getElementById(`heroCarouselV9Btn${idx}`).click()}>
+                                        <img src={img} className="w-100 h-100 object-fit-cover" alt="Thumbnail" />
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Right: Floating Visuals */}
+                        <div className="col-lg-7 hero-v9-visuals">
+                            <div className="hero-v9-image-card">
+                                <div id="heroCarouselV9" className="carousel slide carousel-fade h-100 w-100" data-bs-ride="carousel" data-bs-interval="4000">
+                                    <div className="carousel-indicators d-none">
+                                        <button type="button" id="heroCarouselV9Btn0" data-bs-target="#heroCarouselV9" data-bs-slide-to="0" className="active"></button>
+                                        <button type="button" id="heroCarouselV9Btn1" data-bs-target="#heroCarouselV9" data-bs-slide-to="1"></button>
+                                        <button type="button" id="heroCarouselV9Btn2" data-bs-target="#heroCarouselV9" data-bs-slide-to="2"></button>
+                                    </div>
+                                    <div className="carousel-inner h-100 w-100">
+                                        <div className="carousel-item active h-100 w-100">
+                                            <div className="d-block w-100 h-100 ken-burns" style={{
+                                                backgroundImage: `url(${seafoodBg})`,
+                                                backgroundSize: 'cover',
+                                                backgroundPosition: 'center'
+                                            }}></div>
+                                        </div>
+                                        <div className="carousel-item h-100 w-100">
+                                            <div className="d-block w-100 h-100 ken-burns" style={{
+                                                backgroundImage: `url(${frozenBg})`,
+                                                backgroundSize: 'cover',
+                                                backgroundPosition: 'center'
+                                            }}></div>
+                                        </div>
+                                        <div className="carousel-item h-100 w-100">
+                                            <div className="d-block w-100 h-100 ken-burns" style={{
+                                                backgroundImage: `url(${cashewBg})`,
+                                                backgroundSize: 'cover',
+                                                backgroundPosition: 'center'
+                                            }}></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="position-absolute top-0 start-0 w-100 h-100 bg-linear-gradient-side opacity-10 pointer-events-none"></div>
+                            </div>
+
+                            {/* Floating Stats Badge */}
+                            <div className="hero-v9-badge-floating slide-in-up" style={{ animationDelay: '0.3s' }}>
+                                <div className="hero-v9-badge-icon">
+                                    <i className="fa-solid fa-award"></i>
+                                </div>
+                                <div>
+                                    <h4 className="fw-bold text-dark mb-0">15+ Years</h4>
+                                    <small className="text-muted text-uppercase fw-bold letter-spacing-1">Of Global Excellence</small>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
 
-                {/* Scroll Down Indicator */}
-                <div className="position-absolute bottom-0 start-50 translate-middle-x mb-5 z-1 animate-bounce">
-                    <a href="#discover" className="text-white opacity-75 text-decoration-none d-flex flex-column align-items-center">
-                        <span className="small letter-spacing-2 mb-2">DISCOVER</span>
-                        <i className="fa-solid fa-chevron-down fa-lg"></i>
-                    </a>
+                    </div>
                 </div>
             </div>
 
