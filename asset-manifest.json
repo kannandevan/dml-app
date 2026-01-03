@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/dml-app/static/css/main.950f99ca.css",
-    "main.js": "/dml-app/static/js/main.8629d209.js",
+    "main.css": "/dml-app/static/css/main.86253f68.css",
+    "main.js": "/dml-app/static/js/main.fbcfdc90.js",
     "static/media/banner1.png": "/dml-app/static/media/banner1.573dfd3e06a3bbe82443.png",
     "static/media/seafood-processing.png": "/dml-app/static/media/seafood-processing.dd7fefafb9202a290de4.png",
     "static/media/dml-office.png": "/dml-app/static/media/dml-office.55bbe910811a240895a3.png",
@@ -65,11 +65,11 @@
     "static/media/oil.jpg": "/dml-app/static/media/oil.ae01db2f0cc4f074cdcc.jpg",
     "static/media/img1.png": "/dml-app/static/media/img1.e10eb222463b8450ee53.png",
     "index.html": "/dml-app/index.html",
-    "main.950f99ca.css.map": "/dml-app/static/css/main.950f99ca.css.map",
-    "main.8629d209.js.map": "/dml-app/static/js/main.8629d209.js.map"
+    "main.86253f68.css.map": "/dml-app/static/css/main.86253f68.css.map",
+    "main.fbcfdc90.js.map": "/dml-app/static/js/main.fbcfdc90.js.map"
   },
   "entrypoints": [
-    "static/css/main.950f99ca.css",
-    "static/js/main.8629d209.js"
+    "static/css/main.86253f68.css",
+    "static/js/main.fbcfdc90.js"
   ]
 }
