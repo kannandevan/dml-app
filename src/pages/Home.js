@@ -103,52 +103,70 @@ const Home = () => {
                 </div>
             )}
 
-            {/* Modern Hero Section */}
-            <div className="hero-section-modern bg-hero">
-                <div className="hero-shape-bg"></div>
-                <div className="container position-relative z-1">
-                    <div className="row align-items-center min-vh-75 py-5">
-                        <div className="col-lg-6 mb-5 mb-lg-0">
-                            <h1 className="display-3 fw-bold text-dark mb-4 slide-in-up" style={{ animationDelay: '0.2s' }}>
-                                Harvesting Excellence, <br />
-                                <span className="text-primary">Delivering Freshness</span>
-                            </h1>
-                            <p className="lead text-muted mb-5 slide-in-up" style={{ animationDelay: '0.4s' }}>
-                                DML Group is dedicated to delivering the freshest and highest quality seafood, sourced responsibly from the pristine waters of Mozambique to your table.
-                            </p>
-                            <div className="d-flex flex-wrap gap-3 slide-in-up" style={{ animationDelay: '0.6s' }}>
-                                <button className="btn btn-primary-custom shadow-lg">
-                                    <i className="fa-regular fa-circle-play me-2"></i> See how we work
-                                </button>
-                                <Link to="/contact-us" className="btn btn-outline-primary rounded-pill px-5 py-3 fw-bold border-2">
-                                    Contact Us
-                                </Link>
-                            </div>
+            {/* Unique Cinematic Hero Section */}
+            <div className="hero-section-cinematic position-relative overflow-hidden vh-100 d-flex align-items-center">
+                {/* Full Width Background Carousel */}
+                <div id="heroCarousel" className="carousel slide carousel-fade position-absolute top-0 start-0 w-100 h-100 z-0" data-bs-ride="carousel" data-bs-interval="5000" data-bs-pause="false">
+                    <div className="carousel-inner h-100">
+                        <div className="carousel-item active h-100">
+                            <div className="d-block w-100 h-100" style={{
+                                backgroundImage: `url(${banner1})`,
+                                backgroundSize: 'cover',
+                                backgroundPosition: 'center'
+                            }}></div>
+                            <div className="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-40"></div>
                         </div>
-                        <div className="col-lg-6">
-                            <div className="hero-img-container bg-white p-2">
-                                <div id="heroCarousel" className="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
-                                    <div className="carousel-inner rounded-4 overflow-hidden">
-                                        <div className="carousel-item active">
-                                            <img src={banner1} className="d-block w-100 object-fit-cover" style={{ height: '500px' }} alt="Seafood" />
-                                        </div>
-                                        <div className="carousel-item">
-                                            <img src={image3} className="d-block w-100 object-fit-cover" style={{ height: '500px' }} alt="Octopus" />
-                                        </div>
-                                        <div className="carousel-item">
-                                            <img src={image5} className="d-block w-100 object-fit-cover" style={{ height: '500px' }} alt="Prawns" />
-                                        </div>
-                                    </div>
-                                    <button className="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
-                                        <span className="carousel-control-prev-icon bg-primary rounded-circle" aria-hidden="true"></span>
+                        <div className="carousel-item h-100">
+                            <div className="d-block w-100 h-100" style={{
+                                backgroundImage: `url(${slider2Img1})`,
+                                backgroundSize: 'cover',
+                                backgroundPosition: 'center'
+                            }}></div>
+                            <div className="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-40"></div>
+                        </div>
+                        <div className="carousel-item h-100">
+                            <div className="d-block w-100 h-100" style={{
+                                backgroundImage: `url(${image3})`,
+                                backgroundSize: 'cover',
+                                backgroundPosition: 'center'
+                            }}></div>
+                            <div className="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-40"></div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Floating Glass Content */}
+                <div className="container position-relative z-1">
+                    <div className="row">
+                        <div className="col-lg-7 col-xl-6">
+                            <div className="glass-panel p-5 rounded-4 shadow-lg border-start border-4 border-primary slide-in-up" style={{ backdropFilter: 'blur(16px)', background: 'rgba(255, 255, 255, 0.85)' }}>
+                                <span className="badge bg-primary px-3 py-2 rounded-pill fw-bold letter-spacing-2 mb-3 shadow-sm">EST. 2010</span>
+                                <h1 className="display-4 fw-bold text-dark mb-4 lh-sm">
+                                    Harvesting Excellence, <br />
+                                    <span className="text-primary-gradient">Delivering Freshness.</span>
+                                </h1>
+                                <p className="lead text-dark opacity-75 mb-5 fw-medium">
+                                    DML Group is dedicated to delivering the freshest and highest quality seafood, sourced responsibly from the pristine waters of Mozambique to your table.
+                                </p>
+                                <div className="d-flex flex-wrap gap-3">
+                                    <button className="btn btn-primary shadow-lg rounded-pill px-5 py-3 fw-bold letter-spacing-1 btn-hover-scale">
+                                        Explore Products
                                     </button>
-                                    <button className="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
-                                        <span className="carousel-control-next-icon bg-primary rounded-circle" aria-hidden="true"></span>
-                                    </button>
+                                    <Link to="/contact-us" className="btn btn-outline-dark rounded-pill px-5 py-3 fw-bold border-2 btn-hover-scale">
+                                        Partner With Us
+                                    </Link>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
+
+                {/* Scroll Down Indicator */}
+                <div className="position-absolute bottom-0 start-50 translate-middle-x mb-5 z-1 animate-bounce">
+                    <a href="#discover" className="text-white opacity-75 text-decoration-none d-flex flex-column align-items-center">
+                        <span className="small letter-spacing-2 mb-2">DISCOVER</span>
+                        <i className="fa-solid fa-chevron-down fa-lg"></i>
+                    </a>
                 </div>
             </div>
 
@@ -560,7 +578,7 @@ const Home = () => {
             </div>
 
             {/* Bottom slider */}
-            <div className="bottom-slider mt-0">
+            <div className="bottom-slider mt-0 d-none">
                 <div className="container">
                     <div id="myCarousel1" className="carousel slide" data-bs-ride="carousel">
                         <div className="carousel-inner">
