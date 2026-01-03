@@ -25,6 +25,8 @@ import { Link } from 'react-router-dom';
 
 const Home = () => {
     const [activeFaqIndex, setActiveFaqIndex] = useState(2);
+    const [selectedImage, setSelectedImage] = useState(null);
+    const [activeTestimonial, setActiveTestimonial] = useState(0);
 
     const faqData = [
         {
@@ -45,6 +47,32 @@ const Home = () => {
         }
     ];
 
+    const testimonials = [
+        {
+            text: "This store is dedicated to delivering unparalleled quality and maintaining the highest standards of hygiene. From premium seafood to frozen chicken and globally sourced fish, every product reflects a commitment to freshness and excellence.",
+            author: "Verified Customer",
+            rating: 5
+        },
+        {
+            text: "Absolutely impressed with the freshness of the prawns and crab I ordered. DML Group never disappoints when it comes to quality seafood. The delivery was prompt and the packaging ensured everything stayed frozen perfectly.",
+            author: "Sarah Jenkins",
+            rating: 5
+        },
+        {
+            text: "A reliable partner for our restaurant's seafood needs. The consistency in quality and the sustainability practices they follow give us peace of mind. Highly recommended for bulk orders!",
+            author: "Michael Chen",
+            rating: 5
+        }
+    ];
+
+    // Auto-rotate testimonials
+    React.useEffect(() => {
+        const interval = setInterval(() => {
+            setActiveTestimonial((prev) => (prev + 1) % testimonials.length);
+        }, 5000);
+        return () => clearInterval(interval);
+    }, [testimonials.length]);
+
     const handleFaqClick = (index) => {
         if (index === activeFaqIndex) {
             setActiveFaqIndex(null);
@@ -55,58 +83,89 @@ const Home = () => {
     const startYear = 2010;
     const currentYear = new Date().getFullYear();
     const yearsOfExperience = currentYear - startYear;
+
     return (
         <>
-            {/* Banner Slider */}
-            <div id="heroCarousel" className="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
-                <div className="carousel-indicators">
-                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
-                    {/* Add more indicators if more slides are added */}
+            {/* Image View Modal */}
+            {selectedImage && (
+                <div className="image-modal-overlay" onClick={() => setSelectedImage(null)}>
+                    <div className="image-modal-content" onClick={e => e.stopPropagation()}>
+                        <button className="modal-close-btn" onClick={() => setSelectedImage(null)}>
+                            <i className="fa-solid fa-xmark"></i>
+                        </button>
+                        <img src={selectedImage} alt="Product View" className="image-modal-img" />
+                    </div>
                 </div>
-                <div className="carousel-inner">
-                    <div className="carousel-item active">
-                        <img src={banner1} className="d-block w-100 hero-img" alt="Harvesting Excellence" style={{ height: '90vh', objectFit: 'cover', filter: 'brightness(0.8)' }} />
-                        <div className="carousel-caption d-flex flex-column justify-content-center h-100 start-0 top-0 w-100" style={{ pointerEvents: 'none' }}>
-                            <div className="container" style={{ pointerEvents: 'auto' }}>
-                                <div className="row">
-                                    <div className="col-lg-8 col-md-10 mx-auto text-lg-start text-center">
-                                        <div className="glass-panel p-4 p-md-5 slide-in-up">
-                                            <h3 className="display-4 fw-bold text-primary mb-3">Harvesting Excellence,<br />Delivering Freshness</h3>
-                                            <p className="lead text-dark mb-4">DML Group is dedicated to delivering the freshest and highest quality seafood, sourced responsibly from the pristine waters of Mozambique.</p>
-                                            <div className="d-flex justify-content-lg-start justify-content-center align-items-center gap-3">
-                                                <button className="btn btn-primary-custom">
-                                                    <i className="fa-regular fa-circle-play me-2"></i> See how we work
-                                                </button>
-                                                <Link to="/contact-us" className="btn btn-outline-primary rounded-pill px-4 py-2 border-2 fw-bold">Contact Us</Link>
-                                            </div>
+            )}
+
+            {/* Modern Hero Section */}
+            <div className="hero-section-modern bg-hero">
+                <div className="hero-shape-bg"></div>
+                <div className="container position-relative z-1">
+                    <div className="row align-items-center min-vh-75 py-5">
+                        <div className="col-lg-6 mb-5 mb-lg-0">
+                            <h1 className="display-3 fw-bold text-dark mb-4 slide-in-up" style={{ animationDelay: '0.2s' }}>
+                                Harvesting Excellence, <br />
+                                <span className="text-primary">Delivering Freshness</span>
+                            </h1>
+                            <p className="lead text-muted mb-5 slide-in-up" style={{ animationDelay: '0.4s' }}>
+                                DML Group is dedicated to delivering the freshest and highest quality seafood, sourced responsibly from the pristine waters of Mozambique to your table.
+                            </p>
+                            <div className="d-flex flex-wrap gap-3 slide-in-up" style={{ animationDelay: '0.6s' }}>
+                                <button className="btn btn-primary-custom shadow-lg">
+                                    <i className="fa-regular fa-circle-play me-2"></i> See how we work
+                                </button>
+                                <Link to="/contact-us" className="btn btn-outline-primary rounded-pill px-5 py-3 fw-bold border-2">
+                                    Contact Us
+                                </Link>
+                            </div>
+                        </div>
+                        <div className="col-lg-6">
+                            <div className="hero-img-container bg-white p-2">
+                                <div id="heroCarousel" className="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+                                    <div className="carousel-inner rounded-4 overflow-hidden">
+                                        <div className="carousel-item active">
+                                            <img src={banner1} className="d-block w-100 object-fit-cover" style={{ height: '500px' }} alt="Seafood" />
+                                        </div>
+                                        <div className="carousel-item">
+                                            <img src={image3} className="d-block w-100 object-fit-cover" style={{ height: '500px' }} alt="Octopus" />
+                                        </div>
+                                        <div className="carousel-item">
+                                            <img src={image5} className="d-block w-100 object-fit-cover" style={{ height: '500px' }} alt="Prawns" />
                                         </div>
                                     </div>
+                                    <button className="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                                        <span className="carousel-control-prev-icon bg-primary rounded-circle" aria-hidden="true"></span>
+                                    </button>
+                                    <button className="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                                        <span className="carousel-control-next-icon bg-primary rounded-circle" aria-hidden="true"></span>
+                                    </button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                {/* Stats Overlay - Positioned appropriately */}
-                <div className="container position-relative d-none d-lg-block" style={{ marginTop: '-80px', zIndex: 10 }}>
-                    <div className="glass-panel p-4 shadow-lg text-center">
-                        <div className="row align-items-center">
-                            <div className="col border-end border-light">
-                                <h3 className="fw-bold mb-0 text-primary">{yearsOfExperience}</h3>
-                                <p className="small text-muted mb-0">Years Experience</p>
-                            </div>
-                            <div className="col border-end border-light">
-                                <h3 className="fw-bold mb-0 text-primary">100%</h3>
-                                <p className="small text-muted mb-0">Satisfaction</p>
-                            </div>
-                            <div className="col border-end border-light">
-                                <h3 className="fw-bold mb-0 text-primary">1000+</h3>
-                                <p className="small text-muted mb-0">Daily Orders</p>
-                            </div>
-                            <div className="col">
-                                <h3 className="fw-bold mb-0 text-primary">10+</h3>
-                                <p className="small text-muted mb-0">Product Lines</p>
-                            </div>
+            {/* Stats Overlay - Mobile Fixed */}
+            <div className="container position-relative" style={{ marginTop: '-40px', zIndex: 10 }}>
+                <div className="glass-panel p-4 shadow-lg text-center bg-white">
+                    <div className="row g-4 align-items-center justify-content-center">
+                        <div className="col-6 col-md-3 border-end-md">
+                            <h3 className="fw-bold mb-0 text-primary display-6">{yearsOfExperience}</h3>
+                            <p className="small text-muted mb-0 fw-bold text-uppercase ls-1">Years Experience</p>
+                        </div>
+                        <div className="col-6 col-md-3 border-end-md">
+                            <h3 className="fw-bold mb-0 text-primary display-6">100%</h3>
+                            <p className="small text-muted mb-0 fw-bold text-uppercase ls-1">Satisfaction</p>
+                        </div>
+                        <div className="col-6 col-md-3 border-end-md">
+                            <h3 className="fw-bold mb-0 text-primary display-6">1000+</h3>
+                            <p className="small text-muted mb-0 fw-bold text-uppercase ls-1">Daily Orders</p>
+                        </div>
+                        <div className="col-6 col-md-3">
+                            <h3 className="fw-bold mb-0 text-primary display-6">10+</h3>
+                            <p className="small text-muted mb-0 fw-bold text-uppercase ls-1">Product Lines</p>
                         </div>
                     </div>
                 </div>
@@ -141,7 +200,7 @@ const Home = () => {
             </div>
 
             {/* Products Area */}
-            <div className="section bg-light">
+            <div className="section bg-soft-gray">
                 <div className="container">
                     <div className="text-center mb-5">
                         <h6 className="text-uppercase text-primary fw-bold mb-2">Our Exquisite Products</h6>
@@ -161,13 +220,18 @@ const Home = () => {
                         ].map((item, index) => (
                             <div className="col-lg-3 col-md-4 col-6" key={index}>
                                 <div className="card border-0 shadow-card h-100 overflow-hidden text-center product-card-hover">
-                                    <div className="card-img-top overflow-hidden position-relative" style={{ height: '200px' }}>
+                                    <div className="card-img-top overflow-hidden position-relative" style={{ height: '220px' }}>
                                         <img src={item.img} alt={item.title} className="w-100 h-100 object-fit-cover transition-transform" />
                                         <div className="overlay-gradient position-absolute top-0 start-0 w-100 h-100 opacity-0 transition-opacity d-flex align-items-center justify-content-center bg-primary-transparent">
-                                            <span className="text-white fw-bold border border-white rounded-pill px-3 py-1">View</span>
+                                            <button
+                                                className="btn btn-outline-light rounded-pill px-4 fw-bold scale-on-hover"
+                                                onClick={() => setSelectedImage(item.img)}
+                                            >
+                                                View
+                                            </button>
                                         </div>
                                     </div>
-                                    <div className="card-body bg-white">
+                                    <div className="card-body bg-white py-3">
                                         <h5 className="card-title fw-bold text-dark mb-0">{item.title}</h5>
                                     </div>
                                 </div>
@@ -177,7 +241,7 @@ const Home = () => {
                 </div>
             </div>
 
-            {/* Testimonial area */}
+            {/* Testimonial area - Auto Rotating */}
             <div className="section position-relative overflow-hidden" style={{ background: 'var(--gradient-soft)' }}>
                 <div className="container position-relative z-1">
                     <div className="row align-items-center mb-5">
@@ -185,30 +249,36 @@ const Home = () => {
                             <h6 className="text-uppercase text-primary fw-bold mb-2">Testimonials</h6>
                             <h2 className="display-5 fw-bold">What Our Customers Say</h2>
                         </div>
-                        <div className="col-md-4 text-md-end mt-3 mt-md-0">
-                            <button className="btn btn-outline-primary rounded-circle me-2 p-3"><i className="fa-solid fa-arrow-left"></i></button>
-                            <button className="btn btn-primary rounded-circle p-3 text-white"><i className="fa-solid fa-arrow-right"></i></button>
+                        <div className="col-md-4 text-md-end mt-3 mt-md-0 d-none d-md-block">
+                            <div className="d-flex gap-2 justify-content-end">
+                                {testimonials.map((_, idx) => (
+                                    <span
+                                        key={idx}
+                                        className={`rounded-circle transition-fast ${idx === activeTestimonial ? 'bg-primary' : 'bg-secondary opacity-25'}`}
+                                        style={{ width: '10px', height: '10px', cursor: 'pointer' }}
+                                        onClick={() => setActiveTestimonial(idx)}
+                                    ></span>
+                                ))}
+                            </div>
                         </div>
                     </div>
 
-                    <div className="row">
-                        <div className="col-12">
-                            <div className="glass-panel p-5 shadow-lg position-relative">
+                    <div className="row justify-content-center">
+                        <div className="col-12 col-lg-10">
+                            <div className="glass-panel p-5 shadow-lg position-relative transition-normal" key={activeTestimonial} style={{ animation: 'fadeIn 0.5s ease' }}>
                                 <i className="fa-solid fa-quote-left text-primary opacity-25 display-1 position-absolute top-0 start-0 ms-4 mt-2"></i>
                                 <div className="row align-items-center position-relative z-1">
-                                    <div className="col-lg-12">
-                                        <p className="lead fst-italic text-dark mb-4" style={{ lineHeight: '1.8' }}>
-                                            "This store is dedicated to delivering unparalleled quality and maintaining the highest standards of hygiene. From premium seafood to frozen chicken and globally sourced fish, every product reflects a commitment to freshness and excellence. Complemented by a team of friendly and attentive staff, each visit is designed to ensure customer satisfaction."
+                                    <div className="col-lg-12 text-center text-md-start">
+                                        <p className="lead fst-italic text-dark mb-4 mx-auto mx-md-0" style={{ lineHeight: '1.8', maxWidth: '90%' }}>
+                                            "{testimonials[activeTestimonial].text}"
                                         </p>
-                                        <div className="d-flex align-items-center gap-3">
+                                        <div className="d-flex align-items-center justify-content-center justify-content-md-start gap-3">
                                             <div className="d-flex text-warning">
-                                                <i className="fa-solid fa-star"></i>
-                                                <i className="fa-solid fa-star"></i>
-                                                <i className="fa-solid fa-star"></i>
-                                                <i className="fa-solid fa-star"></i>
-                                                <i className="fa-solid fa-star"></i>
+                                                {[...Array(testimonials[activeTestimonial].rating)].map((_, i) => (
+                                                    <i key={i} className="fa-solid fa-star"></i>
+                                                ))}
                                             </div>
-                                            <span className="fw-bold text-dark">- Verified Customer</span>
+                                            <span className="fw-bold text-dark">- {testimonials[activeTestimonial].author}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -218,39 +288,41 @@ const Home = () => {
                 </div>
             </div>
 
-            {/* OUR VISION */}
-            <div className="section bg-primary text-white position-relative overflow-hidden">
+            {/* OUR VISION - Redesigned */}
+            <div className="section vision-section-bg position-relative overflow-hidden">
                 <div className="container position-relative z-1">
                     <div className="text-center mb-5">
-                        <h2 className="display-5 fw-bold text-white">Our Vision</h2>
-                        <div className="bg-white opacity-25 mx-auto mt-3" style={{ height: '4px', width: '60px', borderRadius: '2px' }}></div>
+                        <h2 className="display-4 fw-bold text-white mb-3">Our Vision</h2>
+                        <p className="text-white-50 mx-auto" style={{ maxWidth: '600px' }}>
+                            We are committed to building a sustainable future through innovation, empowerment, and excellence.
+                        </p>
                     </div>
 
-                    <div className="row g-4 text-center">
+                    <div className="row g-4">
                         <div className="col-md-4">
-                            <div className="glass-panel bg-white bg-opacity-10 p-4 h-100 border-0">
-                                <div className="mb-4 d-inline-block p-3 rounded-circle bg-white bg-opacity-25">
+                            <div className="vision-card text-center">
+                                <div className="vision-icon-wrapper mx-auto">
                                     <i className="fa-solid fa-trophy fa-2x text-white"></i>
                                 </div>
-                                <h4 className="fw-bold text-warning mb-3">Global Leader</h4>
+                                <h3 className="fw-bold text-white mb-3">Global Leader</h3>
                                 <p className="text-white-50">Striving to set the industry standard by driving innovation, sustainability, and excellence in every aspect of our operations.</p>
                             </div>
                         </div>
                         <div className="col-md-4">
-                            <div className="glass-panel bg-white bg-opacity-10 p-4 h-100 border-0">
-                                <div className="mb-4 d-inline-block p-3 rounded-circle bg-white bg-opacity-25">
+                            <div className="vision-card text-center">
+                                <div className="vision-icon-wrapper mx-auto">
                                     <i className="fa-solid fa-briefcase fa-2x text-white"></i>
                                 </div>
-                                <h4 className="fw-bold text-warning mb-3">Job Creation</h4>
+                                <h3 className="fw-bold text-white mb-3">Job Creation</h3>
                                 <p className="text-white-50">Investing in local talent to provide meaningful employment opportunities that contribute to economic growth in Mozambique.</p>
                             </div>
                         </div>
                         <div className="col-md-4">
-                            <div className="glass-panel bg-white bg-opacity-10 p-4 h-100 border-0">
-                                <div className="mb-4 d-inline-block p-3 rounded-circle bg-white bg-opacity-25">
+                            <div className="vision-card text-center">
+                                <div className="vision-icon-wrapper mx-auto">
                                     <i className="fa-solid fa-graduation-cap fa-2x text-white"></i>
                                 </div>
-                                <h4 className="fw-bold text-warning mb-3">Empowerment</h4>
+                                <h3 className="fw-bold text-white mb-3">Empowerment</h3>
                                 <p className="text-white-50">Equipping the next generation with skills, knowledge, and mentorship to build a brighter, more sustainable future.</p>
                             </div>
                         </div>
@@ -349,27 +421,52 @@ const Home = () => {
                 </div>
             </div>
 
-            {/* Why choose us */}
-            <div className="why-us">
+            {/* Why choose us - Redesigned */}
+            <div className="section bg-primary-light">
                 <div className="container">
-                    <div className="row">
-                        <div className="col-md-4 justify-content-center align-items-center d-flex"><img src={whyUsPic} alt="Why choose us" className="why-us-img" /></div>
-                        <div className="col-md-8"><h1 className="mb-5">Why Choose Us </h1>
-                            <div className="row">
-                                <div className="col-md-6"><i className="fa-solid fa-star"></i><h3>Uncompromising Quality</h3>
-                                    <p className="text-justify">Every detail is crafted with precision, every material is chosen for excellence, and every effort is focused on perfection. True quality requires dedication and care, which is why we ensure that everything we create meets the highest standards. From start to finish, our commitment remains unwavering, delivering the best in craftsmanship, performance, and reliability.                              </p></div>
-                                <div className="col-md-6"><i className="fa-solid fa-book-open-reader"></i><h3>Sustainability Leadership</h3>
-                                    <p className="text-justify">Leading with a focus on sustainability in frozen foods and agri-food systems means utilizing energy-efficient freezing methods, reducing waste, sourcing responsibly, and preserving nutritional value. These efforts not only enhance food security and lower environmental impact but also support a more sustainable food supply chain and promote long-term economic resilience for future generations.
-
-                                    </p></div>
+                    <div className="row g-5 align-items-center">
+                        <div className="col-lg-5">
+                            <div className="position-relative">
+                                <img src={whyUsPic} alt="Why choose us" className="img-fluid rounded-4 shadow-lg w-100" />
+                                <div className="position-absolute bottom-0 start-0 bg-white p-4 m-4 rounded-3 shadow-lg">
+                                    <h4 className="fw-bold text-primary mb-0">Why Us?</h4>
+                                    <p className="small mb-0 text-muted">Excellence in every detail.</p>
+                                </div>
                             </div>
-                            <div className="row mt-5">
-                                <div className="col-md-6"><i className="fa-solid fa-earth-americas"></i><h3>Global Reach, Local Expertise</h3>
-                                    <p className="text-justify">We bridge international innovation with local knowledge to create sustainable, high-quality frozen foods and agri-food solutions. By leveraging global supply chains while understanding local agricultural practices, consumer preferences, and market demands, we deliver products that align with both environmental sustainability and evolving customer needs, ensuring a more adaptive and resilient food ecosystem.</p></div>
-                                <div className="col-md-6"><i className="fa-solid fa-person-circle-check"></i><h3>Customer-Centric Approach</h3>
-                                    <p className="text-justify">We prioritize understanding and meeting customer needs, preferences, and expectations at every stage, ensuring personalized experiences and delivering solutions that enhance satisfaction. By fostering strong relationships and continuously innovating to exceed expectations, we build trust, drive loyalty, and create lasting value for our customers worldwide.
+                        </div>
+                        <div className="col-lg-7">
+                            <h6 className="text-uppercase text-primary fw-bold mb-2">The DML Difference</h6>
+                            <h2 className="display-5 fw-bold mb-5">Why Partner With Us?</h2>
 
-                                    </p></div>
+                            <div className="row g-4">
+                                <div className="col-md-6">
+                                    <div className="feature-card">
+                                        <i className="fa-solid fa-star feature-icon"></i>
+                                        <h4 className="fw-bold mb-3">Uncompromising Quality</h4>
+                                        <p className="text-muted small text-justify">True quality requires dedication and care. We ensure that everything we create meets the highest standards of craftsmanship.</p>
+                                    </div>
+                                </div>
+                                <div className="col-md-6">
+                                    <div className="feature-card">
+                                        <i className="fa-solid fa-book-open-reader feature-icon"></i>
+                                        <h4 className="fw-bold mb-3">Sustainability Leadership</h4>
+                                        <p className="text-muted small text-justify">Leading with a focus on energy-efficient methods, reducing waste, and sourcing responsibly to preserve our planet.</p>
+                                    </div>
+                                </div>
+                                <div className="col-md-6">
+                                    <div className="feature-card">
+                                        <i className="fa-solid fa-earth-americas feature-icon"></i>
+                                        <h4 className="fw-bold mb-3">Global Reach</h4>
+                                        <p className="text-muted small text-justify">Bridging international innovation with local knowledge to create sustainable, high-quality solutions worldwide.</p>
+                                    </div>
+                                </div>
+                                <div className="col-md-6">
+                                    <div className="feature-card">
+                                        <i className="fa-solid fa-person-circle-check feature-icon"></i>
+                                        <h4 className="fw-bold mb-3">Customer Centric</h4>
+                                        <p className="text-muted small text-justify">We prioritize understanding your needs, ensuring personalized experiences and solutions that enhance satisfaction.</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -377,7 +474,7 @@ const Home = () => {
             </div>
 
             {/* Usually Asked Questions */}
-            <div className="section bg-white">
+            <div className="section bg-pattern">
                 <div className="container">
                     <div className="text-center mb-5">
                         <h6 className="text-uppercase text-primary fw-bold mb-2">FAQ</h6>
@@ -408,7 +505,7 @@ const Home = () => {
             </div>
 
             {/* Bottom slider */}
-            <div className="bottom-slider">
+            <div className="bottom-slider mt-0">
                 <div className="container">
                     <div id="myCarousel1" className="carousel slide" data-bs-ride="carousel">
                         <div className="carousel-inner">

@@ -10,10 +10,10 @@ const FishProcess = () => {
         <div className="page-wrapper bg-light">
             {/* Hero Section */}
             <section className="position-relative py-5 overlay-gradient text-white" style={{ background: `url(${frozenFishImage}) center/cover no-repeat`, minHeight: '400px', display: 'flex', alignItems: 'center' }}>
-                <div className="position-absolute top-0 start-0 w-100 h-100 bg-primary-transparent"></div> {/* Dark Overlay */}
+                <div className="position-absolute top-0 start-0 w-100 h-100" style={{ backgroundColor: 'rgba(0, 0, 0, 0.7)' }}></div> {/* Darker Overlay for readability */}
                 <div className="container position-relative z-2 text-center">
-                    <h1 className="display-4 fw-bold mb-3">Seafood Processing</h1>
-                    <p className="lead mb-0">Harvesting Excellence Since 2010 • EU Approval No. 757.1</p>
+                    <h1 className="display-4 fw-bold mb-3" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.5)' }}>Seafood Processing</h1>
+                    <p className="lead mb-0" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.5)', opacity: 0.9 }}>Harvesting Excellence Since 2010 • EU Approval No. 757.1</p>
                 </div>
             </section>
 
