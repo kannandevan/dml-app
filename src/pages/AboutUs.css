@@ -1,18 +1,29 @@
-.team-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    background-color: #fff;
-    border-radius: 20px;
+/* About Us Page Specific Styles */
+
+/* Ensure the hero image works well on all screens */
+.hero-section-modern img {
+    transition: transform 0.5s ease;
 }
 
-.team-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+.hero-section-modern:hover img {
+    transform: scale(1.02);
 }
 
-.team-img img {
-    width: 140px;
-    height: 140px;
-    object-fit: cover;
-    border: 5px solid #fff;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+/* Team Card Specifics */
+.team-card-img-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    margin: 0 auto 1.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+/* Timeline/Milestone Cards */
+.timeline-card {
+    transition: all 0.3s ease;
+}
+
+.timeline-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1) !important;
 }

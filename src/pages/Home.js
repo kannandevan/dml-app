@@ -331,98 +331,126 @@ const Home = () => {
             </div>
 
             {/* Our mission */}
-            <div className="section bg-light">
-                <div className="container">
-                    <div className="text-center mb-5">
-                        <h6 className="text-uppercase text-primary fw-bold mb-2">Our Core Values</h6>
-                        <h2 className="display-5 fw-bold">Our Mission</h2>
+            <div className="section bg-soft-gray position-relative overflow-hidden">
+                {/* Decorative blob */}
+                <div className="position-absolute top-0 end-0 p-5 opacity-10">
+                    <i className="fa-solid fa-quote-right fa-10x text-primary"></i>
+                </div>
+
+                <div className="container position-relative z-1">
+                    <div className="row justify-content-center text-center mb-5">
+                        <div className="col-lg-8">
+                            <span className="badge bg-white text-primary px-3 py-2 rounded-pill fw-bold letter-spacing-2 shadow-sm mb-3">CORE PHILOSOPHY</span>
+                            <h2 className="display-4 fw-bold mb-4">Our Mission</h2>
+                            <p className="lead text-muted">
+                                To be the global benchmark in sustainable protein sourcing, uplifting communities and ensuring the highest quality from farm to table.
+                            </p>
+                        </div>
                     </div>
 
-                    <div className="row g-5">
+                    <div className="row g-4 mb-5">
                         <div className="col-md-4">
-                            <div className="card h-100 shadow-card border-0 p-4 hover-lift">
-                                <div className="d-flex align-items-center mb-3">
-                                    <span className="display-4 fw-bold text-primary opacity-25 me-3">01</span>
-                                    <div className="rounded-circle bg-primary bg-opacity-10 p-3">
-                                        <img src={sustainabilityIcon} alt="Sustainability" style={{ width: '30px', height: '30px' }} />
+                            <div className="card h-100 border-0 shadow-lg p-4 hover-lift position-relative overflow-hidden group-hover-text-primary">
+                                <div className="d-flex align-items-center mb-4">
+                                    <div className="d-inline-flex align-items-center justify-content-center bg-primary-light text-primary rounded-circle mb-0" style={{ width: '60px', height: '60px' }}>
+                                        <i className="fa-solid fa-heart-pulse fa-lg"></i>
                                     </div>
+                                    <span className="display-3 fw-bold text-light position-absolute top-0 end-0 pe-4 pt-2 opacity-50">01</span>
                                 </div>
-                                <h4 className="fw-bold mb-3">Healthiest Protein</h4>
-                                <p className="text-muted">Delivering the highest quality, nutrient-rich protein to consumers worldwide, ensuring health and sustainability through careful sourcing.</p>
+                                <h4 className="fw-bold mb-3 text-dark transition-colors">Healthiest Protein</h4>
+                                <p className="text-muted mb-0">Delivering the highest quality, nutrient-rich protein to consumers worldwide, ensuring health and sustainability through careful sourcing.</p>
                             </div>
                         </div>
                         <div className="col-md-4">
-                            <div className="card h-100 shadow-card border-0 p-4 hover-lift">
-                                <div className="d-flex align-items-center mb-3">
-                                    <span className="display-4 fw-bold text-primary opacity-25 me-3">02</span>
-                                    <div className="rounded-circle bg-primary bg-opacity-10 p-3">
-                                        <i className="fa-solid fa-leaf text-primary fa-lg"></i>
+                            <div className="card h-100 border-0 shadow-lg p-4 hover-lift position-relative overflow-hidden group-hover-text-success">
+                                <div className="d-flex align-items-center mb-4">
+                                    <div className="d-inline-flex align-items-center justify-content-center bg-success-light text-success rounded-circle mb-0" style={{ width: '60px', height: '60px' }}>
+                                        <i className="fa-solid fa-people-carry-box fa-lg"></i>
                                     </div>
+                                    <span className="display-3 fw-bold text-light position-absolute top-0 end-0 pe-4 pt-2 opacity-50">02</span>
                                 </div>
-                                <h4 className="fw-bold mb-3">Add Value Locally</h4>
-                                <p className="text-muted">Responsibly utilizing Mozambique’s natural resources to create economic opportunities, focusing on ethical sourcing and stewardship.</p>
+                                <h4 className="fw-bold mb-3 text-dark transition-colors">Add Value Locally</h4>
+                                <p className="text-muted mb-0">Responsibly utilizing Mozambique’s natural resources to create economic opportunities, focusing on ethical sourcing and stewardship.</p>
                             </div>
                         </div>
                         <div className="col-md-4">
-                            <div className="card h-100 shadow-card border-0 p-4 hover-lift">
-                                <div className="d-flex align-items-center mb-3">
-                                    <span className="display-4 fw-bold text-primary opacity-25 me-3">03</span>
-                                    <div className="rounded-circle bg-primary bg-opacity-10 p-3">
-                                        <i className="fa-solid fa-handshake text-primary fa-lg"></i>
+                            <div className="card h-100 border-0 shadow-lg p-4 hover-lift position-relative overflow-hidden group-hover-text-warning">
+                                <div className="d-flex align-items-center mb-4">
+                                    <div className="d-inline-flex align-items-center justify-content-center bg-warning-light text-warning rounded-circle mb-0" style={{ width: '60px', height: '60px' }}>
+                                        <i className="fa-solid fa-globe fa-lg"></i>
                                     </div>
+                                    <span className="display-3 fw-bold text-light position-absolute top-0 end-0 pe-4 pt-2 opacity-50">03</span>
                                 </div>
-                                <h4 className="fw-bold mb-3">Global Partnerships</h4>
-                                <p className="text-muted">Collaborating with trusted global producers who prioritize quality and ethics, ensuring every product meets high standards.</p>
+                                <h4 className="fw-bold mb-3 text-dark transition-colors">Global Partnerships</h4>
+                                <p className="text-muted mb-0">Collaborating with trusted global producers who prioritize quality and ethics, ensuring every product meets high standards.</p>
                             </div>
                         </div>
                     </div>
 
                     {/* More Products Section */}
-                    <div className="mt-5 pt-5">
-                        <div className="row g-4">
-                            <div className="col-lg-3 col-md-6">
-                                <Link to="/fish-process" className="card h-100 border-0 shadow-lg bg-primary text-white text-decoration-none transition-transform hover-translate-up">
-                                    <div className="card-body p-4 text-center">
-                                        <i className="fa-solid fa-fish fa-3x mb-4 text-white-50"></i>
-                                        <h4 className="fw-bold text-white mb-3">Seafood Processing</h4>
-                                        <p className="text-white-50 small">Harvested from pristine waters, delivered globally with exceptional freshness.</p>
+                    <div className="row g-4 pt-4">
+                        <div className="col-lg-3 col-md-6">
+                            <Link to="/fish-process" className="card h-100 border-0 shadow-lg bg-gradient-primary text-white text-decoration-none hover-translate-up overflow-hidden">
+                                <div className="card-body p-4 text-center position-relative z-1">
+                                    <div className="mb-4 d-inline-block p-3 rounded-circle bg-white bg-opacity-25">
+                                        <i className="fa-solid fa-fish fa-2x text-white"></i>
                                     </div>
-                                </Link>
-                            </div>
-                            <div className="col-lg-3 col-md-6">
-                                <Link to="/frozen-trade" className="card h-100 border-0 shadow-lg bg-success text-white text-decoration-none transition-transform hover-translate-up">
-                                    <div className="card-body p-4 text-center">
-                                        <i className="fa-solid fa-store fa-3x mb-4 text-white-50"></i>
-                                        <h4 className="fw-bold text-white mb-3">Frozen Trade</h4>
-                                        <p className="text-white-50 small">Premium frozen seafood, chicken, and meat with guaranteed consistent quality.</p>
+                                    <h5 className="fw-bold text-white mb-2">Seafood Processing</h5>
+                                    <p className="text-white-50 small mb-0">Freshness Guaranteed</p>
+                                </div>
+                                <div className="position-absolute bottom-0 end-0 opacity-10 p-3">
+                                    <i className="fa-solid fa-fish fa-6x"></i>
+                                </div>
+                            </Link>
+                        </div>
+                        <div className="col-lg-3 col-md-6">
+                            <Link to="/frozen-trade" className="card h-100 border-0 shadow-lg bg-gradient-success text-white text-decoration-none hover-translate-up overflow-hidden">
+                                <div className="card-body p-4 text-center position-relative z-1">
+                                    <div className="mb-4 d-inline-block p-3 rounded-circle bg-white bg-opacity-25">
+                                        <i className="fa-solid fa-snowflake fa-2x text-white"></i>
                                     </div>
-                                </Link>
-                            </div>
-                            <div className="col-lg-3 col-md-6">
-                                <Link to="/farming" className="card h-100 border-0 shadow-lg bg-warning text-white text-decoration-none transition-transform hover-translate-up">
-                                    <div className="card-body p-4 text-center">
-                                        <i className="fa-solid fa-tractor fa-3x mb-4 text-white-50"></i>
-                                        <h4 className="fw-bold text-white mb-3">Farming</h4>
-                                        <p className="text-white-50 small">Agricultural crop production, poultry farming, and livestock development.</p>
+                                    <h5 className="fw-bold text-white mb-2">Frozen Trade</h5>
+                                    <p className="text-white-50 small mb-0">Premium Quality</p>
+                                </div>
+                                <div className="position-absolute bottom-0 end-0 opacity-10 p-3">
+                                    <i className="fa-solid fa-store fa-6x"></i>
+                                </div>
+                            </Link>
+                        </div>
+                        <div className="col-lg-3 col-md-6">
+                            <Link to="/farming" className="card h-100 border-0 shadow-lg bg-gradient-warning text-white text-decoration-none hover-translate-up overflow-hidden">
+                                <div className="card-body p-4 text-center position-relative z-1">
+                                    <div className="mb-4 d-inline-block p-3 rounded-circle bg-white bg-opacity-25">
+                                        <i className="fa-solid fa-wheat-awn fa-2x text-white"></i>
                                     </div>
-                                </Link>
-                            </div>
-                            <div className="col-lg-3 col-md-6">
-                                <Link to="/cashew-processing" className="card h-100 border-0 shadow-lg bg-info text-white text-decoration-none transition-transform hover-translate-up">
-                                    <div className="card-body p-4 text-center">
-                                        <i className="fa-solid fa-seedling fa-3x mb-4 text-white-50"></i>
-                                        <h4 className="fw-bold text-white mb-3">Cashew Processing</h4>
-                                        <p className="text-white-50 small">Handpicked cashews, skillfully processed for quality and global markets.</p>
+                                    <h5 className="fw-bold text-white mb-2">Farming</h5>
+                                    <p className="text-white-50 small mb-0">Sustainable Growth</p>
+                                </div>
+                                <div className="position-absolute bottom-0 end-0 opacity-10 p-3">
+                                    <i className="fa-solid fa-tractor fa-6x"></i>
+                                </div>
+                            </Link>
+                        </div>
+                        <div className="col-lg-3 col-md-6">
+                            <Link to="/cashew-processing" className="card h-100 border-0 shadow-lg bg-gradient-dark text-white text-decoration-none hover-translate-up overflow-hidden" style={{ background: 'linear-gradient(45deg, #FF6B6B 0%, #EE5253 100%)' }}>
+                                <div className="card-body p-4 text-center position-relative z-1">
+                                    <div className="mb-4 d-inline-block p-3 rounded-circle bg-white bg-opacity-25">
+                                        <i className="fa-solid fa-tree fa-2x text-white"></i>
                                     </div>
-                                </Link>
-                            </div>
+                                    <h5 className="fw-bold text-white mb-2">Cashew Processing</h5>
+                                    <p className="text-white-50 small mb-0">Expertly Crafted</p>
+                                </div>
+                                <div className="position-absolute bottom-0 end-0 opacity-10 p-3">
+                                    <i className="fa-solid fa-seedling fa-6x"></i>
+                                </div>
+                            </Link>
                         </div>
                     </div>
                 </div>
             </div>
 
             {/* Why choose us - Redesigned */}
-            <div className="section bg-primary-light">
+            <div className="section bg-white">
                 <div className="container">
                     <div className="row g-5 align-items-center">
                         <div className="col-lg-5">

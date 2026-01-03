@@ -1,0 +1,84 @@
+/* Footer Dark Theme */
+.footer-dark {
+    background: #0f172a;
+    /* Deep Navy Blue */
+    background: linear-gradient(180deg, #0f172a 0%, #020617 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Logo Wrapper */
+.logo-wrapper {
+    transition: transform 0.3s ease;
+}
+
+.logo-wrapper:hover {
+    transform: scale(1.05);
+}
+
+/* Links */
+.footer-links li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.footer-links a:hover {
+    color: #fff;
+    transform: translateX(5px);
+}
+
+.footer-links a:hover i {
+    transform: translateX(3px);
+}
+
+/* Social Icons */
+.social-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    background: var(--bs-primary);
+    transform: translateY(-3px);
+    color: #fff;
+    box-shadow: 0 5px 15px rgba(13, 110, 253, 0.3);
+}
+
+/* Input Fields */
+.footer-dark .form-control {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-color: rgba(255, 255, 255, 0.1);
+    color: #fff !important;
+}
+
+.footer-dark .form-control:focus {
+    background: rgba(255, 255, 255, 0.1) !important;
+    box-shadow: none;
+    border-color: var(--bs-primary);
+}
+
+.placeholder-white-50::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.ls-1 {
+    letter-spacing: 1px;
+}
+
+.hover-white:hover {
+    color: #fff !important;
+}
