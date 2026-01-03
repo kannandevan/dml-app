@@ -11,69 +11,90 @@ import galleryImg7 from '../images/69a8b6_2567ad6f294a46119066a7db207b4ea6.jpg';
 
 const CashewTrade = () => {
     return (
-        <div className="page-wrapper bg-light">
-            {/* Hero Section */}
-            <section className="position-relative py-5 text-white" style={{ background: `url(${heroImage}) center/cover no-repeat fixed`, minHeight: '550px', display: 'flex', alignItems: 'center' }}>
-                <div className="position-absolute top-0 start-0 w-100 h-100 bg-black opacity-80"></div>
-                <div className="container position-relative z-2 text-center">
-                    <span className="badge bg-white text-dark mb-4 px-4 py-2 rounded-pill fw-bold letter-spacing-2 shadow">EXPORT QUALITY</span>
-                    <h1 className="display-2 fw-bold mb-3 text-shadow">Cashew Trade</h1>
-                    <p className="lead mb-0 fs-4 text-shadow-sm opacity-100">Delivering Premium Raw Cashew Nuts to Global Ports</p>
+        <div className="page-wrapper bg-soft-gray">
+            {/* Split Hero Section */}
+            <div className="hero-section-modern bg-white overflow-hidden">
+                <div className="container position-relative z-1">
+                    <div className="row align-items-center py-5">
+                        <div className="col-lg-6 mb-5 mb-lg-0">
+                            <span className="badge bg-white border text-dark mb-3 px-3 py-2 rounded-pill fw-bold letter-spacing-1 shadow-sm">EXPORT QUALITY</span>
+                            <h1 className="display-3 fw-bold text-dark mb-4">
+                                Premium <br />
+                                <span className="text-secondary">Cashew Trade</span>
+                            </h1>
+                            <p className="lead text-muted mb-4">
+                                Delivering Premium Raw Cashew Nuts to Global Ports. Based in the port city of Nacala,
+                                facilitating efficient international trade.
+                            </p>
+                            <div className="d-flex align-items-center gap-4 mt-4">
+                                <a href="#specs" className="btn btn-primary rounded-pill px-5 py-3 shadow-lg hover-lift">
+                                    View Specs
+                                </a>
+                            </div>
+                        </div>
+                        <div className="col-lg-6">
+                            <div className="position-relative rounded-4 overflow-hidden shadow-lg p-1 bg-white">
+                                <img src={heroImage} className="img-fluid rounded-3 w-100 object-fit-cover" style={{ minHeight: '450px' }} alt="Cashew Trade Hero" />
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </section>
+            </div>
 
-            {/* Specifications Section - Standard BG */}
-            <section className="section py-5 bg-light-subtle">
-                <div className="container py-4">
+            {/* Specifications Section */}
+            <section className="section py-5 bg-white" id="specs">
+                <div className="container">
                     <div className="row align-items-center g-5">
-                        <div className="col-md-6">
-                            <h6 className="text-secondary fw-bold text-uppercase letter-spacing-2 mb-3">
-                                <span className="d-inline-block border-bottom border-secondary border-2 pb-1">Our Ops</span>
-                            </h6>
+                        <div className="col-md-6 order-md-2">
+                            <div className="position-relative p-2 bg-light rounded-4">
+                                <img src={cashewNutImage} className="img-fluid rounded-3 shadow-lg hover-lift w-100" alt="Raw Cashew Nuts" />
+                            </div>
+                        </div>
+                        <div className="col-md-6 order-md-1">
+                            <h6 className="text-uppercase text-secondary fw-bold letter-spacing-2 mb-3">Our Operations</h6>
                             <h2 className="display-5 fw-bold mb-4">Export Specifications</h2>
-                            <p className="lead text-muted mb-5 fs-5">
+                            <p className="text-muted lead mb-5">
                                 Based in the port city of Nacala, our export warehouse facilitates global trade.
                                 We deal exclusively in confirmed orders, ensuring reliability and quality.
                             </p>
 
-                            <div className="card border-0 shadow-card overflow-hidden rounded-4">
+                            <div className="card border-0 shadow-sm overflow-hidden rounded-4">
                                 <div className="card-header bg-primary text-white p-3 fw-bold">
                                     Quality Parameters
                                 </div>
-                                <table className="table table-hover mb-0">
-                                    <tbody>
-                                        <tr>
-                                            <td className="ps-4 py-4"><i className="fa-solid fa-hashtag text-primary me-3"></i> Nut Count</td>
-                                            <td className="pe-4 py-4 text-end fw-bold fs-5">180 - 195</td>
-                                        </tr>
-                                        <tr>
-                                            <td className="ps-4 py-4"><i className="fa-solid fa-percent text-primary me-3"></i> KOR (Kernel Output)</td>
-                                            <td className="pe-4 py-4 text-end fw-bold fs-5">46 - 48</td>
-                                        </tr>
-                                        <tr>
-                                            <td className="ps-4 py-4"><i className="fa-solid fa-droplet text-primary me-3"></i> Moisture</td>
-                                            <td className="pe-4 py-4 text-end fw-bold fs-5">&lt; 10%</td>
-                                        </tr>
-                                        <tr>
-                                            <td className="ps-4 py-4"><i className="fa-solid fa-box-open text-primary me-3"></i> Packaging</td>
-                                            <td className="pe-4 py-4 text-end fw-bold fs-5">80 kg Jute Bag</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <div className="card-body p-0">
+                                    <table className="table table-hover mb-0">
+                                        <tbody>
+                                            <tr>
+                                                <td className="ps-4 py-3"><i className="fa-solid fa-hashtag text-primary me-3"></i> Nut Count</td>
+                                                <td className="pe-4 py-3 text-end fw-bold">180 - 195</td>
+                                            </tr>
+                                            <tr>
+                                                <td className="ps-4 py-3"><i className="fa-solid fa-percent text-primary me-3"></i> KOR (Kernel Output)</td>
+                                                <td className="pe-4 py-3 text-end fw-bold">46 - 48</td>
+                                            </tr>
+                                            <tr>
+                                                <td className="ps-4 py-3"><i className="fa-solid fa-droplet text-primary me-3"></i> Moisture</td>
+                                                <td className="pe-4 py-3 text-end fw-bold">&lt; 10%</td>
+                                            </tr>
+                                            <tr>
+                                                <td className="ps-4 py-3"><i className="fa-solid fa-box-open text-primary me-3"></i> Packaging</td>
+                                                <td className="pe-4 py-3 text-end fw-bold">80 kg Jute Bag</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
-                        </div>
-                        <div className="col-md-6">
-                            <img src={cashewNutImage} className="img-fluid rounded-4 shadow-lg hover-lift" alt="Raw Cashew Nuts" />
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* Gallery Grid - White BG */}
-            <section className="section py-5 bg-white">
-                <div className="container py-4">
+            {/* Gallery Grid */}
+            <section className="section py-5 bg-soft-gray">
+                <div className="container">
                     <div className="text-center mb-5">
-                        <h6 className="text-secondary fw-bold text-uppercase letter-spacing-2">Gallery</h6>
+                        <h6 className="text-uppercase text-secondary fw-bold letter-spacing-2 mb-2">Gallery</h6>
                         <h2 className="fw-bold display-4">From Harvest to Export</h2>
                     </div>
 
@@ -83,9 +104,8 @@ const CashewTrade = () => {
                             galleryImg5, galleryImg6, galleryImg7, galleryImg7
                         ].map((img, index) => (
                             <div className="col-6 col-md-3" key={index}>
-                                <div className="rounded-4 overflow-hidden shadow-card h-100 position-relative group-hover-zoom cursor-pointer">
-                                    <div className="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-0 group-hover-opacity-20 transition-all z-1"></div>
-                                    <img src={img} alt={`Gallery ${index + 1}`} className="w-100 h-100 object-fit-cover transition-transform duration-500 hover-scale-110" style={{ minHeight: '200px' }} />
+                                <div className="rounded-4 overflow-hidden shadow-sm h-100 position-relative hover-lift cursor-pointer bg-white p-1">
+                                    <img src={img} alt={`Gallery ${index + 1}`} className="w-100 h-100 object-fit-cover rounded-3" style={{ minHeight: '200px' }} />
                                 </div>
                             </div>
                         ))}

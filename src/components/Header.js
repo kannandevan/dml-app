@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 
 // Assuming logo is in src/images folder
 import logoImage from '../images/logo_1.png';
@@ -7,10 +7,21 @@ import './Header.css'
 const Header = () => {
     // This state manages the mobile menu toggle (collapsed or expanded)
     const [isNavCollapsed, setIsNavCollapsed] = useState(true);
+    const location = useLocation();
 
     // This function closes the mobile menu when a link is clicked
     const handleLinkClick = () => {
         setIsNavCollapsed(true);
+    };
+
+    // Helper to check if any DML Group route is active
+    const isDmlGroupActive = () => {
+        const dmlRoutes = [
+            '/fish-process', '/fish-trade',
+            '/cashew-processing', '/cashew-trade',
+            '/commodity-trade', '/agri-trade', '/frozen-trade'
+        ];
+        return dmlRoutes.includes(location.pathname);
     };
 
     return (
@@ -44,7 +55,7 @@ const Header = () => {
                         {/* Mega Menu Dropdown */}
                         <li className="nav-item dropdown">
                             <a
-                                className="nav-link dropdown-toggle"
+                                className={`nav-link dropdown-toggle ${isDmlGroupActive() ? 'active text-primary fw-bold' : ''}`}
                                 href="#"
                                 id="megaMenuDropdown"
                                 role="button"
@@ -56,38 +67,80 @@ const Header = () => {
                             <div className="dropdown-menu mega-menu" aria-labelledby="megaMenuDropdown">
                                 <div className="row p-2">
                                     <div className="col-lg-4 col-md-12 col-sm-12">
-                                        <p>Sea Food</p>
+                                        <p className="fw-bold text-uppercase text-muted small ps-3 mb-2">Sea Food</p>
                                         <ul className="list-group list-group-flush">
                                             <li className="list-group-item-action">
-                                                <Link className="nav-link" to="/fish-process" onClick={handleLinkClick}>Sea Food Processing</Link>
+                                                <Link
+                                                    className={`nav-link ${location.pathname === '/fish-process' ? 'active fw-bold text-primary bg-light' : ''}`}
+                                                    to="/fish-process"
+                                                    onClick={handleLinkClick}
+                                                >
+                                                    Sea Food Processing
+                                                </Link>
                                             </li>
                                             <li className="list-group-item-action">
-                                                <Link className="nav-link" to="/fish-trade" onClick={handleLinkClick}>Frozen Fish Trade</Link>
+                                                <Link
+                                                    className={`nav-link ${location.pathname === '/fish-trade' ? 'active fw-bold text-primary bg-light' : ''}`}
+                                                    to="/fish-trade"
+                                                    onClick={handleLinkClick}
+                                                >
+                                                    Frozen Fish Trade
+                                                </Link>
                                             </li>
                                         </ul>
                                     </div>
                                     <div className="col-lg-4 col-md-12 col-sm-12">
-                                        <p>Cashew</p>
+                                        <p className="fw-bold text-uppercase text-muted small ps-3 mb-2">Cashew</p>
                                         <ul className="list-group list-group-flush">
                                             <li className="list-group-item-action">
-                                                <Link className="nav-link" to="/cashew-processing" onClick={handleLinkClick}>Cashew Processing</Link>
+                                                <Link
+                                                    className={`nav-link ${location.pathname === '/cashew-processing' ? 'active fw-bold text-primary bg-light' : ''}`}
+                                                    to="/cashew-processing"
+                                                    onClick={handleLinkClick}
+                                                >
+                                                    Cashew Processing
+                                                </Link>
                                             </li>
                                             <li className="list-group-item-action">
-                                                <Link className="nav-link" to="/cashew-trade" onClick={handleLinkClick}>Cashew Trade</Link>
+                                                <Link
+                                                    className={`nav-link ${location.pathname === '/cashew-trade' ? 'active fw-bold text-primary bg-light' : ''}`}
+                                                    to="/cashew-trade"
+                                                    onClick={handleLinkClick}
+                                                >
+                                                    Cashew Trade
+                                                </Link>
                                             </li>
                                         </ul>
                                     </div>
                                     <div className="col-lg-4 col-md-12 col-sm-12">
-                                        <p>Trade</p>
+                                        <p className="fw-bold text-uppercase text-muted small ps-3 mb-2">Trade</p>
                                         <ul className="list-group list-group-flush">
-                                             <li className="list-group-item-action">
-                                                <Link className="nav-link" to="/commodity-trade" onClick={handleLinkClick}>Commodity Trade</Link>
+                                            <li className="list-group-item-action">
+                                                <Link
+                                                    className={`nav-link ${location.pathname === '/commodity-trade' ? 'active fw-bold text-primary bg-light' : ''}`}
+                                                    to="/commodity-trade"
+                                                    onClick={handleLinkClick}
+                                                >
+                                                    Commodity Trade
+                                                </Link>
                                             </li>
                                             <li className="list-group-item-action">
-                                                <Link className="nav-link" to="/agri-trade" onClick={handleLinkClick}>Agri Trade</Link>
+                                                <Link
+                                                    className={`nav-link ${location.pathname === '/agri-trade' ? 'active fw-bold text-primary bg-light' : ''}`}
+                                                    to="/agri-trade"
+                                                    onClick={handleLinkClick}
+                                                >
+                                                    Agri Trade
+                                                </Link>
                                             </li>
                                             <li className="list-group-item-action">
-                                                <Link className="nav-link" to="/frozen-trade" onClick={handleLinkClick}>Frozen Trade</Link>
+                                                <Link
+                                                    className={`nav-link ${location.pathname === '/frozen-trade' ? 'active fw-bold text-primary bg-light' : ''}`}
+                                                    to="/frozen-trade"
+                                                    onClick={handleLinkClick}
+                                                >
+                                                    Frozen Trade
+                                                </Link>
                                             </li>
                                         </ul>
                                     </div>

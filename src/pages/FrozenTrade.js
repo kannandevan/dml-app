@@ -61,33 +61,51 @@ const FrozenTrade = () => {
 
     const ProductCard = ({ img, title }) => (
         <div className="col-md-6 col-lg-3">
-            <div className="card border-0 h-100 shadow-card hover-lift overflow-hidden group-hover-zoom rounded-4">
-                <div className="position-relative overflow-hidden" style={{ height: '260px' }}>
-                    <img src={img} alt={title} className="w-100 h-100 object-fit-cover transition-transform duration-500" />
-                    <div className="position-absolute bottom-0 start-0 w-100 bg-gradient-to-t from-dark to-transparent p-5 opacity-50"></div>
+            <div className="card border-0 h-100 shadow-sm hover-lift overflow-hidden rounded-4 bg-white">
+                <div className="position-relative p-3">
+                    <img src={img} alt={title} className="w-100 rounded-3 object-fit-cover shadow-sm" style={{ height: '200px' }} />
                 </div>
-                <div className="card-body text-center bg-white position-relative p-4">
-                    <h6 className="fw-bold mb-0 text-dark fs-5">{title}</h6>
+                <div className="card-body text-center pt-0 px-4 pb-4">
+                    <h6 className="fw-bold mb-0 text-dark">{title}</h6>
                 </div>
             </div>
         </div>
     );
 
     return (
-        <div className="page-wrapper bg-light">
-            {/* Hero Section */}
-            <section className="position-relative py-5 text-white" style={{ background: `url(${heroImage}) center/cover no-repeat fixed`, minHeight: '550px', display: 'flex', alignItems: 'center' }}>
-                <div className="position-absolute top-0 start-0 w-100 h-100 bg-black opacity-80"></div>
-                <div className="container position-relative z-2 text-center">
-                    <span className="badge bg-danger text-white mb-4 px-4 py-2 rounded-pill fw-bold letter-spacing-2 shadow">COLD CHAIN EXPERTS</span>
-                    <h1 className="display-2 fw-bold mb-3 text-shadow">Frozen Product Supply</h1>
-                    <p className="lead mb-0 w-75 mx-auto opacity-100 fs-4 text-shadow-sm">Ensuring food safety and quality across Mozambique with a comprehensive range of frozen proteins.</p>
+        <div className="page-wrapper bg-soft-gray">
+            {/* Split Hero Section */}
+            <div className="hero-section-modern bg-white overflow-hidden">
+                <div className="container position-relative z-1">
+                    <div className="row align-items-center py-5">
+                        <div className="col-lg-6 mb-5 mb-lg-0">
+                            <span className="badge bg-danger text-white mb-3 px-3 py-2 rounded-pill fw-bold letter-spacing-1 shadow-sm">COLD CHAIN EXPERTS</span>
+                            <h1 className="display-3 fw-bold text-dark mb-4">
+                                Frozen Product <br />
+                                <span className="text-danger">Supply</span>
+                            </h1>
+                            <p className="lead text-muted mb-4">
+                                Ensuring food safety and quality across Mozambique with a comprehensive range of frozen proteins.
+                                Sourced globally for premium reliability.
+                            </p>
+                            <div className="d-flex align-items-center gap-3 mt-4">
+                                <button onClick={() => handleCategoryClick('frozen-chicken')} className="btn btn-outline-danger rounded-pill px-4 fw-bold">Chicken</button>
+                                <button onClick={() => handleCategoryClick('frozen-fish')} className="btn btn-outline-primary rounded-pill px-4 fw-bold">Fish</button>
+                                <button onClick={() => handleCategoryClick('frozen-meat')} className="btn btn-outline-dark rounded-pill px-4 fw-bold">Meat</button>
+                            </div>
+                        </div>
+                        <div className="col-lg-6">
+                            <div className="position-relative rounded-4 overflow-hidden shadow-lg p-1 bg-white">
+                                <img src={heroImage} className="img-fluid rounded-3 w-100 object-fit-cover" style={{ minHeight: '450px' }} alt="Frozen Trade Hero" />
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </section>
+            </div>
 
             {/* Sticky Nav Buttons */}
-            <div className="sticky-top bg-white/90 backdrop-blur shadow-sm z-3 py-3 border-bottom">
-                <div className="container d-flex justify-content-center gap-2 gap-md-4 flex-wrap">
+            <div className="sticky-top bg-white bg-opacity-95 backdrop-blur shadow-sm z-3 py-3 border-bottom">
+                <div className="container d-flex justify-content-center gap-2 flex-wrap">
                     {[
                         { id: 'frozen-chicken', label: 'Frozen Chicken', icon: 'fa-drumstick-bite' },
                         { id: 'frozen-fish', label: 'Frozen Fish', icon: 'fa-fish' },
@@ -95,7 +113,7 @@ const FrozenTrade = () => {
                     ].map(cat => (
                         <button
                             key={cat.id}
-                            className={`btn rounded-pill px-4 py-2 fw-bold d-flex align-items-center gap-2 transition-all ${activeCategory === cat.id ? 'btn-danger shadow transform-scale-105' : 'btn-light text-muted hover-bg-light-gray'}`}
+                            className={`btn rounded-pill px-4 py-2 fw-bold d-flex align-items-center gap-2 transition-all ${activeCategory === cat.id ? 'btn-danger shadow-sm' : 'btn-light text-muted border'}`}
                             onClick={() => handleCategoryClick(cat.id)}>
                             <i className={`fa-solid ${cat.icon}`}></i> {cat.label}
                         </button>
@@ -103,15 +121,15 @@ const FrozenTrade = () => {
                 </div>
             </div>
 
-            {/* Frozen Chicken Section - Chicken (Light BG as standard) */}
-            <section id="frozen-chicken" className="section py-5 bg-light-subtle">
+            {/* Frozen Chicken Section */}
+            <section id="frozen-chicken" className="section py-5 bg-white">
                 <div className="container py-4">
-                    <div className="d-flex align-items-center mb-5 pb-3 border-bottom border-warning">
-                        <div className="icon-circle bg-warning text-dark me-4 shadow-sm" style={{ width: '60px', height: '60px', fontSize: '1.5rem' }}>
+                    <div className="d-flex align-items-center mb-5 pb-3 border-bottom border-warning border-opacity-25">
+                        <div className="d-inline-flex align-items-center justify-content-center bg-warning-subtle text-warning-dark rounded-circle me-4" style={{ width: '60px', height: '60px', fontSize: '1.5rem' }}>
                             <i className="fa-solid fa-drumstick-bite"></i>
                         </div>
                         <div>
-                            <h6 className="text-warning fw-bold text-uppercase letter-spacing-2 mb-1">Poultry</h6>
+                            <h6 className="text-warning-dark fw-bold text-uppercase letter-spacing-2 mb-1">Poultry</h6>
                             <h2 className="display-5 fw-bold mb-0">Frozen Chicken</h2>
                         </div>
                     </div>
@@ -128,15 +146,15 @@ const FrozenTrade = () => {
                 </div>
             </section>
 
-            {/* Frozen Fish Section - White BG */}
-            <section id="frozen-fish" className="section py-5 bg-white border-top border-bottom">
+            {/* Frozen Fish Section */}
+            <section id="frozen-fish" className="section py-5 bg-soft-gray">
                 <div className="container py-4">
-                    <div className="d-flex align-items-center mb-5 pb-3 border-bottom border-info">
-                        <div className="icon-circle bg-info text-white me-4 shadow-sm" style={{ width: '60px', height: '60px', fontSize: '1.5rem' }}>
+                    <div className="d-flex align-items-center mb-5 pb-3 border-bottom border-primary border-opacity-25">
+                        <div className="d-inline-flex align-items-center justify-content-center bg-primary-light text-primary rounded-circle me-4" style={{ width: '60px', height: '60px', fontSize: '1.5rem' }}>
                             <i className="fa-solid fa-fish"></i>
                         </div>
                         <div>
-                            <h6 className="text-info fw-bold text-uppercase letter-spacing-2 mb-1">Seafood</h6>
+                            <h6 className="text-primary fw-bold text-uppercase letter-spacing-2 mb-1">Seafood</h6>
                             <h2 className="display-5 fw-bold mb-0">Frozen Fish</h2>
                         </div>
                     </div>
@@ -150,11 +168,11 @@ const FrozenTrade = () => {
                 </div>
             </section>
 
-            {/* Frozen Meat Section - Light BG */}
-            <section id="frozen-meat" className="section py-5 bg-light-subtle">
+            {/* Frozen Meat Section */}
+            <section id="frozen-meat" className="section py-5 bg-white">
                 <div className="container py-4">
-                    <div className="d-flex align-items-center mb-5 pb-3 border-bottom border-danger">
-                        <div className="icon-circle bg-danger text-white me-4 shadow-sm" style={{ width: '60px', height: '60px', fontSize: '1.5rem' }}>
+                    <div className="d-flex align-items-center mb-5 pb-3 border-bottom border-danger border-opacity-25">
+                        <div className="d-inline-flex align-items-center justify-content-center bg-danger-subtle text-danger rounded-circle me-4" style={{ width: '60px', height: '60px', fontSize: '1.5rem' }}>
                             <i className="fa-solid fa-burger"></i>
                         </div>
                         <div>
