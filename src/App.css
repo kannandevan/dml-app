@@ -554,3 +554,7 @@ img {
   background-color: rgba(59, 71, 153, 0.04);
   /* Very faint primary color tint */
 }
+
+.text-warning-dark {
+  color: #d39e00;
+}
