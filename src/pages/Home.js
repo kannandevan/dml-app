@@ -20,6 +20,11 @@ import rating5 from '../images/rating5.png';
 import sustainabilityIcon from '../images/sustainability.png';
 import whyUsPic from '../images/why-us.png';
 import slider2Img1 from '../images/dml-office.png';
+// Product Backgrounds
+import seafoodBg from '../images/seafood-processing.png';
+import frozenBg from '../images/frozen-fish.png';
+import farmingBg from '../images/wheat.jpg'; // Using wheat as a generic farming bg
+import cashewBg from '../images/cashew_pile_raw.png';
 import { Link } from 'react-router-dom';
 
 
@@ -390,58 +395,80 @@ const Home = () => {
                     {/* More Products Section */}
                     <div className="row g-4 pt-4">
                         <div className="col-lg-3 col-md-6">
-                            <Link to="/fish-process" className="card h-100 border-0 shadow-lg bg-gradient-primary text-white text-decoration-none hover-translate-up overflow-hidden">
-                                <div className="card-body p-4 text-center position-relative z-1">
-                                    <div className="mb-4 d-inline-block p-3 rounded-circle bg-white bg-opacity-25">
+                            <Link to="/fish-process" className="card h-100 border-0 shadow-lg text-white text-decoration-none hover-zoom-img overflow-hidden position-relative">
+                                {/* Background Image */}
+                                <div className="position-absolute top-0 start-0 w-100 h-100" style={{
+                                    backgroundImage: `url(${seafoodBg})`,
+                                    backgroundSize: 'cover',
+                                    backgroundPosition: 'center',
+                                    transition: 'transform 0.5s ease'
+                                }}></div>
+                                {/* Dark Overlay */}
+                                <div className="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-75 transition-opacity hover-opacity-60"></div>
+
+                                <div className="card-body p-4 text-center position-relative z-1 d-flex flex-column justify-content-center align-items-center h-100">
+                                    <div className="mb-4 p-3 rounded-circle border border-white border-opacity-25 glass-icon">
                                         <i className="fa-solid fa-fish fa-2x text-white"></i>
                                     </div>
-                                    <h5 className="fw-bold text-white mb-2">Seafood Processing</h5>
+                                    <h5 className="fw-bold text-white mb-2 letter-spacing-1">Seafood Processing</h5>
                                     <p className="text-white-50 small mb-0">Freshness Guaranteed</p>
                                 </div>
-                                <div className="position-absolute bottom-0 end-0 opacity-10 p-3">
-                                    <i className="fa-solid fa-fish fa-6x"></i>
-                                </div>
                             </Link>
                         </div>
                         <div className="col-lg-3 col-md-6">
-                            <Link to="/frozen-trade" className="card h-100 border-0 shadow-lg bg-gradient-success text-white text-decoration-none hover-translate-up overflow-hidden">
-                                <div className="card-body p-4 text-center position-relative z-1">
-                                    <div className="mb-4 d-inline-block p-3 rounded-circle bg-white bg-opacity-25">
+                            <Link to="/frozen-trade" className="card h-100 border-0 shadow-lg text-white text-decoration-none hover-zoom-img overflow-hidden position-relative">
+                                <div className="position-absolute top-0 start-0 w-100 h-100" style={{
+                                    backgroundImage: `url(${frozenBg})`,
+                                    backgroundSize: 'cover',
+                                    backgroundPosition: 'center',
+                                    transition: 'transform 0.5s ease'
+                                }}></div>
+                                <div className="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-75 transition-opacity hover-opacity-60"></div>
+
+                                <div className="card-body p-4 text-center position-relative z-1 d-flex flex-column justify-content-center align-items-center h-100">
+                                    <div className="mb-4 p-3 rounded-circle border border-white border-opacity-25 glass-icon">
                                         <i className="fa-solid fa-snowflake fa-2x text-white"></i>
                                     </div>
-                                    <h5 className="fw-bold text-white mb-2">Frozen Trade</h5>
+                                    <h5 className="fw-bold text-white mb-2 letter-spacing-1">Frozen Trade</h5>
                                     <p className="text-white-50 small mb-0">Premium Quality</p>
                                 </div>
-                                <div className="position-absolute bottom-0 end-0 opacity-10 p-3">
-                                    <i className="fa-solid fa-store fa-6x"></i>
-                                </div>
                             </Link>
                         </div>
                         <div className="col-lg-3 col-md-6">
-                            <Link to="/farming" className="card h-100 border-0 shadow-lg bg-gradient-warning text-white text-decoration-none hover-translate-up overflow-hidden">
-                                <div className="card-body p-4 text-center position-relative z-1">
-                                    <div className="mb-4 d-inline-block p-3 rounded-circle bg-white bg-opacity-25">
+                            <Link to="/farming" className="card h-100 border-0 shadow-lg text-white text-decoration-none hover-zoom-img overflow-hidden position-relative">
+                                <div className="position-absolute top-0 start-0 w-100 h-100" style={{
+                                    backgroundImage: `url(${farmingBg})`,
+                                    backgroundSize: 'cover',
+                                    backgroundPosition: 'center',
+                                    transition: 'transform 0.5s ease'
+                                }}></div>
+                                <div className="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-75 transition-opacity hover-opacity-60"></div>
+
+                                <div className="card-body p-4 text-center position-relative z-1 d-flex flex-column justify-content-center align-items-center h-100">
+                                    <div className="mb-4 p-3 rounded-circle border border-white border-opacity-25 glass-icon">
                                         <i className="fa-solid fa-wheat-awn fa-2x text-white"></i>
                                     </div>
-                                    <h5 className="fw-bold text-white mb-2">Farming</h5>
+                                    <h5 className="fw-bold text-white mb-2 letter-spacing-1">Farming</h5>
                                     <p className="text-white-50 small mb-0">Sustainable Growth</p>
-                                </div>
-                                <div className="position-absolute bottom-0 end-0 opacity-10 p-3">
-                                    <i className="fa-solid fa-tractor fa-6x"></i>
                                 </div>
                             </Link>
                         </div>
                         <div className="col-lg-3 col-md-6">
-                            <Link to="/cashew-processing" className="card h-100 border-0 shadow-lg bg-gradient-dark text-white text-decoration-none hover-translate-up overflow-hidden" style={{ background: 'linear-gradient(45deg, #FF6B6B 0%, #EE5253 100%)' }}>
-                                <div className="card-body p-4 text-center position-relative z-1">
-                                    <div className="mb-4 d-inline-block p-3 rounded-circle bg-white bg-opacity-25">
+                            <Link to="/cashew-processing" className="card h-100 border-0 shadow-lg text-white text-decoration-none hover-zoom-img overflow-hidden position-relative">
+                                <div className="position-absolute top-0 start-0 w-100 h-100" style={{
+                                    backgroundImage: `url(${cashewBg})`,
+                                    backgroundSize: 'cover',
+                                    backgroundPosition: 'center',
+                                    transition: 'transform 0.5s ease'
+                                }}></div>
+                                <div className="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-75 transition-opacity hover-opacity-60"></div>
+
+                                <div className="card-body p-4 text-center position-relative z-1 d-flex flex-column justify-content-center align-items-center h-100">
+                                    <div className="mb-4 p-3 rounded-circle border border-white border-opacity-25 glass-icon">
                                         <i className="fa-solid fa-tree fa-2x text-white"></i>
                                     </div>
-                                    <h5 className="fw-bold text-white mb-2">Cashew Processing</h5>
+                                    <h5 className="fw-bold text-white mb-2 letter-spacing-1">Cashew Processing</h5>
                                     <p className="text-white-50 small mb-0">Expertly Crafted</p>
-                                </div>
-                                <div className="position-absolute bottom-0 end-0 opacity-10 p-3">
-                                    <i className="fa-solid fa-seedling fa-6x"></i>
                                 </div>
                             </Link>
                         </div>

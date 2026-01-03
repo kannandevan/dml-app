@@ -558,3 +558,74 @@ img {
 .text-warning-dark {
   color: #d39e00;
 }
+
+/* === MISSING UTILITIES FOR HOME PAGE === */
+.bg-gradient-primary {
+  background: var(--gradient-primary);
+}
+
+.bg-gradient-success {
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+}
+
+.bg-gradient-warning {
+  background: linear-gradient(135deg, #ffc107 0%, #fd7e14 100%);
+}
+
+.bg-gradient-dark {
+  background: linear-gradient(135deg, #343a40 0%, #212529 100%);
+}
+
+.bg-success-light {
+  background-color: rgba(40, 167, 69, 0.1);
+}
+
+.bg-warning-light {
+  background-color: rgba(255, 193, 7, 0.1);
+}
+
+.bg-primary-light {
+  background-color: rgba(59, 71, 153, 0.1);
+}
+
+/* Group Hover Effects */
+.group-hover-text-primary:hover h4 {
+  color: var(--primary-color) !important;
+}
+
+.group-hover-text-success:hover h4 {
+  color: #28a745 !important;
+}
+
+.group-hover-text-warning:hover h4 {
+  color: #ffc107 !important;
+}
+
+
+.transition-colors {
+  transition: color 0.3s ease;
+}
+
+/* Image Product Card Effects */
+.hover-zoom-img:hover div[style*="background-image"] {
+  transform: scale(1.1);
+}
+
+.hover-opacity-60:hover {
+  opacity: 0.6 !important;
+}
+
+.letter-spacing-1 {
+  letter-spacing: 1px;
+}
+
+.glass-icon {
+  backdrop-filter: blur(4px);
+  background: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.hover-zoom-img:hover .glass-icon {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
